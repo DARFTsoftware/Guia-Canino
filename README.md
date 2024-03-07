@@ -27,10 +27,8 @@
           <h3>Colaboração:</h3>
           <h3>Acessibilidade</h3>
       </div>
-      <a href="https://www.figma.com/file/hHrI7twJZW6EQoLtEiJgHd/Guia-Canino?type=design&node-id=0-1&mode=design&t=tRn7X2RU2LAaYVI6-0">Link Figma</a>
+      <a href="https://www.figma.com/file/hHrI7twJZW6EQoLtEiJgHd/Guia-Canino?type=design&node-id=0-1&mode=design&t=tRn7X2RU2LAaYVI6-0">Link Figma</a><br>
       <a href="https://trello.com/b/WVSMscgX/kanban-equipe-darft">Link Trello</a>
-      
-      
     </div>
   </body>
 </html>
