@@ -4,7 +4,7 @@
     <div>
       <h2>Visão Geral</h2>
       <p>
-        A ideia do site é  ajudar pessoas a adotarem um pet fornecendo dicas e informações utéis a respeito. Se você já pensou em adotar um cão mas não sabe por onde começar, o nosso site pode te ajudar!
+        A ideia do site é  ajudar pessoas a adotarem um pet fornecendo dicas e informações utéis a respeito. Se você já pensou em adotar um cão, mas não sabe por onde começar, o nosso site pode te ajudar!
       </p>
       <p>
         Funções: Comparar animais e suas raças para ver o seu custo de habitação: O quão caro em geral é a ração do animal? O quanto custa pra mantê-lo saudável? Se ficar doente, custa muito para levar ao veterinário? Além disso, ao nos fornecer algumas informações por meio do cadastro de usuário(opcional), você pode personalizar sua experiência, incluindo: cães compatíveis com seu clima, moradia, renda e muito mais.
