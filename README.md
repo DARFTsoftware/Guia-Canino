@@ -1,16 +1,13 @@
 <html>
   <body>
-    <h1>A Pet Project finalmente começa!!!</h1>
+    <h1>O nosso Guia Canino vem aí!!!</h1>
     <div>
       <h2>Visão Geral</h2>
       <p>
-        A ideia do site é  ajudar pessoas a adotarem um pet fornecendo dicas a respeito.
+        A ideia do site é  ajudar pessoas a adotarem um pet fornecendo dicas e informações utéis a respeito. Se você já pesnou em adotar um cão ma snão sabe por onde começar, o nosso site pode te ajudar!
       </p>
       <p>
-        Especificamente: Comparar animais e suas raças para ver o custo de manutenção: O quão caro em geral é a ração do animal? O quanto custa pra mantê-lo saudável? Se ficar doente, custa muito para levar ao veterinário?
-      </p>
-      <p>
-        Exemplo: Raças de cão pequenas se alimentam menos, mas custam mais para serem levados ao veterinário.
+        Funções: Comparar animais e suas raças para ver o seu custo de habitação: O quão caro em geral é a ração do animal? O quanto custa pra mantê-lo saudável? Se ficar doente, custa muito para levar ao veterinário? Além disso, ao nos fornecer algumas informações por meio do cadastro de usuário(opcional), você pode personalizar sua experiência, incluindo: cães compatíveis com seu clima, moradia, renda e muito mais.
       </p>
     </div>
     <div>
