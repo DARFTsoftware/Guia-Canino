@@ -21,7 +21,7 @@
         <h2>Visão:</h2>
         <p>Nossa visão é ser reconhecida como uma empresa líder no setor, inspirando outros jovens e contribuindo para um futuro digital inclusivo e sustentável em escala global</p>
           <h2>Valores:</h2>
-          <h3>Inovação</h3>
+          <h3>Inovação:</h3>
           <h3>Excelência:</h3>
           <h3>Aprendizado:</h3>
           <h3>Colaboração:</h3>
