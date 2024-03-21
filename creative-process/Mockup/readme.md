@@ -1,1 +1,1 @@
-# MOCKUP (DESIGN DE MÉDIA FIDELIDADE) DO SITE
+# Mockup (design de média fidelidade) do site
