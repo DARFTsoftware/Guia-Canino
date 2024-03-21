@@ -1,12 +1,4 @@
 <html>
-  <head>
-    <style>
-      a {
-        color: aliceblue;
-        text-decoration: none;
-      }
-    </style>
-  </head>
   <body>
     <h1>O nosso Guia Canino vem aí!!!</h1>
     <div>
