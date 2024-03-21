@@ -1,4 +1,12 @@
 <html>
+  <head>
+    <style>
+      a {
+        color: aliceblue;
+        text-decoration: none;
+      }
+    </style>
+  </head>
   <body>
     <h1>O nosso Guia Canino vem aí!!!</h1>
     <div>
@@ -12,8 +20,8 @@
     </div>
       <div>
         <h1>Links</h1>
-        <a href="https://www.figma.com/file/hHrI7twJZW6EQoLtEiJgHd/Guia-Canino?type=design&node-id=0-1&mode=design&t=tRn7X2RU2LAaYVI6-0">Link Figma</a><br>
-        <a href="https://trello.com/b/WVSMscgX/kanban-equipe-darft">Link Trello</a>
+        <a href="https://www.figma.com/file/hHrI7twJZW6EQoLtEiJgHd/Guia-Canino?type=design&node-id=0-1&mode=design&t=tRn7X2RU2LAaYVI6-0">Figma</a><br>
+        <a href="https://trello.com/b/WVSMscgX/kanban-equipe-darft">Trello</a>
       </div>
     </div>
   </body>
