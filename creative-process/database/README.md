@@ -3,5 +3,6 @@
 <ul><li>Modelo conceitual</li></ul>
 <img src="modelagemconceitual_db.png" alt="conceito">
 <ul><li>Modelo Lógico</li></ul>
-<img src="modelagemlogica_db.png" alt="Logica">
 
+
+![BD - Guia Canino](https://github.com/DARFTsoftware/Guia-Canino/assets/160743295/6b9fc8a1-1559-422c-a868-7e1c5eaa146e)
