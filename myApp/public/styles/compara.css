@@ -1,0 +1,163 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    height: 100%;            
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: scroll;
+    /*
+        Pra ajustar o background 
+        → fazer o main-content ser uma row que tem 3 colunas
+            → bg L / Content / bg R
+            → ai o conteudo do Content pode de boa ultrapassar o bg R, semelhante
+            ao que acontece no 'Compara Celular' 
+    */
+}
+
+#main-content {
+    height: 100%;
+    width: 1800px;
+}
+
+.row .col-2 {
+    background-color: aqua;
+}
+
+.row .col-2 .row {
+    height: 100%;
+}
+.row .col-2 .row .col-2 {
+    background-color: red;
+}
+
+#comp-box {
+    margin-top: 0%;
+    height: fit-content;
+    margin-left: 0px;
+    padding-left: 0px;
+    background-color: rgb(255, 255, 255) !important;
+} 
+
+.pokemons{
+    height: fit-content;
+}
+
+.pokemons #align-img {
+    width: fit-content;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.pokemons .row .col-4 {
+    width: 100%;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    text-align: center;
+    background-color: gray;
+}
+                                
+
+.pokemon-card {
+    width: 80%;
+    height: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.pokemons .row .col-4 img {
+    width: 70%;
+}
+
+.status {
+    padding: 30px;
+    margin-top: 0px;
+    padding-left: 0px;
+}
+
+.status #cell-1 {
+    margin-top: 0px;
+}
+
+.status .col {
+    padding-left: 0px;
+}
+
+.status .cell {
+    margin-top: 90px;
+    width: fit-content;
+}
+
+.status .cell #cell-head {
+    margin-left: 3%;
+    margin-bottom: 15px;
+}
+
+.status .col .t-bg{
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    background-color: orange;
+    padding-left: 15px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.status .col .t-bg .col {
+    text-align: center;
+}
+
+.status .col .t-bg h5 {
+    margin-bottom: 0px;
+    margin: auto;
+}
+
+.status .cell .col .oranje {
+    margin-top: 0px;
+    width : 900px;
+    height: 3px;
+    background-color: orange;
+}
+
+.status .cell #r-i {
+    margin-left: 2%;
+    margin-bottom: 2px;
+}
+
+.status .cell #r-i .col {
+    margin-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 10px;
+    background-color: rgba(140, 140, 140, 0.2);
+}
+
+.status .cell #r-p {
+    margin-left: 2%;
+    margin-bottom: 2px;
+}
+
+.status .cell #r-p .col {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 10px;
+    margin-left: 1%
+}
+.status .row #infos * {
+    color: rgb(165, 42, 42); /* A decidir */
+}
+
+.status .cell .row p {
+    margin: auto;
+}

@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    width: 270px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background-color: #AFA466;
+    text-align: center;
+    padding-left: 0;
+}
+
+.container-fluid {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ece8d2;
+    background-image: url("../reg-bg.jpg");
+    background-size: cover;
+    background-position: top;
+}
+
+#box {
+    border-radius: 16px;
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.area {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-top: 20px;
+}
+
+#email {
+    margin-top: 30px;
+}
+
+#email,
+#user,
+#pass {
+    background-color: #D9D9D9;
+}
+
+#button-login {
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+li input {
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+td {
+    padding-left: 30px;
+    padding-right: 10px;
+}
