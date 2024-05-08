@@ -17,155 +17,156 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Comparador</title>
-        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/compara.css">
-        <link>
-        <!-- Boostrap-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="row" id="main-content"> <!-- Não to usando container fluid pois essa tela tem ser não redimensional, funcionando via H e V scrolls -->
 
-            <div class="col-2">
-                <div class="row">
-                    <div class="col-10"></div>
-                    <div class="col-2"></div>
+<head>
+    <title>Comparador</title>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/compara.css">
+    <link>
+    <!-- Boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <div class="row" id="main-content">
+            <!-- Não to usando container fluid pois essa tela tem ser não redimensional, funcionando via H e V scrolls -->
+
+            <div class="add">
+                <div class="a">
+                    <div class="col-a"></div>
+                    <div class="col-b"></div>
                 </div>
             </div>
-            <div class="col-8" id="comp-box">
+            <div class="col-8 mx-auto" id="comp-box">
 
-                <div class="header">
 
-                </div><!-- header -->
-
-                <div class="pokemons">
-                    <div class="row" id="align-img">
-                        <div class="col">
-                            <div style="width: 910px"></div>
-                            <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4" id="card">
-                                    <div class="pokemon-card">
-                                        <h4>Chihuahua</h4>
-                                        <img src="/image/image36.png">
+                    <div class="pokemons">
+                        <div class="row" id="align-img">
+                            <div class="col">
+                                <div style="width: 910px"></div>
+                                <div class="row" id="row-card">
+                                    <div class="col-4"></div>
+                                    <div class="col-4" id="card">
+                                        <div class="pokemon-card">
+                                            <h4>Chihuahua</h4>
+                                            <img src="/image/image36.png">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-4" id="card">
-                                    <div class="pokemon-card">
-                                        <h4>Pug</h4>
-                                        <img src="/image/image40.png">
+                                    <div class="col-4" id="card">
+                                        <div class="pokemon-card">
+                                            <h4>Pug</h4>
+                                            <img src="/image/image40.png">
+                                        </div>
+
                                     </div>
-                                    
                                 </div>
                             </div>
-                        </div>
-                        <!-- Alinhar as fotos com as colunas -->
-                        
-                    </div><!-- row -->
-                </div><!-- Pokemons -->
-    
-                <div class="status">
-                    <!--
+                            <!-- Alinhar as fotos com as colunas -->
+
+                        </div><!-- row -->
+                    </div><!-- Pokemons -->
+
+                    <div class="status">
+                        <!--
                         T A B L E S
     
                         Alterar o col e row pra table → Colocar backgroung nas celulas
                         Alem de organizar os espaço entre as celulas da table semelhante ao Tudo Celular
                         Link → https://www.tudocelular.com/compare/7018-9237.html
                      -->
-                    <div class="cell" id="cell-1">
-                        <div class="col" id="cell-head">
-                            <div class="t-bg">
-                                <div class="col">
-                                    <h5>Físico</h5>
+                        <div class="cell" id="cell-1">
+                            <div class="col" id="cell-head">
+                                <div class="t-bg">
+                                    <div class="col">
+                                        <h5>Físico</h5>
+                                    </div>
+                                </div>
+
+                                <div class="oranje"></div>
+                            </div>
+
+                            <!-- Formatacao nova para o background por conta dos itens -->
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Tamanho :</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>15cm ~ 23cm</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>15cm ~ 23cm</p>
                                 </div>
                             </div>
-                            
-                            <div class="oranje"></div>
-                        </div>
-    
-                        <!-- Formatacao nova para o background por conta dos itens -->
-                        <div class="row" id="r-i">
-                            <div class="col" id="topics">
-                                <p>Tamanho :</p>                            
-                            </div>
-                            <div class="col" id="infos">
-                                <p>15cm ~ 23cm</p>
-                            </div>
-                            <div class="col" id="infos">
-                                <p>15cm ~ 23cm</p>
-                            </div>
-                        </div>
 
-                        <div class="row" id="r-p">
-                            <div class="col" id="topics">
-                                <p>Peso :</p>                             
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Peso :</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>3kg ~ 5kg</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>3kg ~ 5kg</p>
+                                </div>
                             </div>
-                            <div class="col" id="infos">
-                                <p>3kg ~ 5kg</p>
-                            </div>
-                            <div class="col" id="infos">
-                                <p>3kg ~ 5kg</p>
-                            </div>
-                        </div>
 
-                        <div class="row" id="r-i">
-                            <div class="col" id="topics">
-                                <p>Cor da pelagem :</p>                             
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Cor da pelagem :</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>30 variedades</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>30 variedades</p>
+                                </div>
                             </div>
-                            <div class="col" id="infos">
-                                <p>30 variedades</p>
-                            </div>
-                            <div class="col" id="infos">
-                                <p>30 variedades</p>
-                            </div>
-                        </div>
 
-                        <div class="row" id="r-p">
-                            <div class="col" id="topics">
-                                <p>Tipo de pelagem :</p>                             
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Tipo de pelagem :</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>-</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>-</p>
+                                </div>
                             </div>
-                            <div class="col" id="infos">
-                                <p>-</p>
-                            </div>
-                            <div class="col" id="infos">
-                                <p>-</p>
-                            </div>
-                        </div>
 
-                        <div class="row" id="r-i">
-                            <div class="col" id="topics">
-                                <p>Expectativa de vida :</p>                             
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Expectativa de vida :</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>14 ~ 16 anos</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p>14 ~ 16 anos</p>
+                                </div>
                             </div>
-                            <div class="col" id="infos">
-                                <p>14 ~ 16 anos</p>
-                            </div>
-                            <div class="col" id="infos">
-                                <p>14 ~ 16 anos</p>
-                            </div>
-                        </div>
-                        <!-- Formatacao nova -->
-                    </div> <!-- Cell -->
-                </div> <!-- status -->
-            
-                <div class="footer">
+                            <!-- Formatacao nova -->
+                        </div> <!-- Cell -->
+                    </div> <!-- status -->
 
-                </div>
 
             </div> <!-- comp-box -->
-            <div class="col-2">
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-10"></div>
+            <div class="add">
+                <div class="b">
+                    <div class="col-a"></div>
+                    <div class="col-b"></div>
                 </div>
-                
+
             </div>
         </div><!-- main-content -->
-        
-        <script>
-        
-            window.onload = function() {
+
+        <%- include('./partials/footer') %>
+
+        <!-- <script>
+
+            window.onload = function () {
                 if (screen.width < 500) {
                     var metaViewport = document.getElementById('viewport');
                     metaViewport.setAttribute('content', 'user-scalable=no,width=500');
@@ -176,16 +177,23 @@
 
             let animales = JSON.parse(json);
             //alert(animales[0].nome)
-    
 
 
-            
-        </script>
+
+
+        </script> -->
 
         <!-- Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
-    </body>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+</body>
+
 </html>
