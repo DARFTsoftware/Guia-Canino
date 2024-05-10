@@ -25,9 +25,12 @@ body {
 }
 
 .header {
+    position: sticky;
+    top: 0px;
     width: 100vw;
     height: 100px;
     background-color: orange;
+    z-index: 1;
   }
 
   #header-box {
@@ -61,6 +64,13 @@ body {
     height: 100%;
     width: 100%;
 }
+
+#site-name img {
+    max-width: 55%;
+    height: auto;
+    margin-left: 100px;
+    margin-top: -26px;
+  }
 
 .add .a{
     height: 100vh;

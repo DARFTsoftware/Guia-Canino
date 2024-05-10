@@ -19,9 +19,12 @@
   }
 
   .header {
+    position: sticky;
+    top: 0px;
     width: 100vw;
     height: 100px;
     background-color: orange;
+    z-index: 1;
   }
 
   #header-box {
@@ -54,6 +57,13 @@
 #site-name {
     margin-right: auto;
 }
+
+#site-name img {
+    max-width: 55%;
+    height: auto;
+    margin-left: 100px;
+    margin-top: -26px;
+  }
 
 .form-control {
     width: 70%;
@@ -141,7 +151,7 @@
     margin-bottom: 10px;
 }
 
-.img-fluid {
+.d-flex .img-fluid {
     width: 158px;
     height: 158px;
     border: 1px solid #ccc; /* Adicionando uma borda cinza */
