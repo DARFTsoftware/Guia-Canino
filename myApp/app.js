@@ -2,6 +2,19 @@ const express = require('express');
 const app = express();
 const path = require('path')
 
+// app.js
+
+
+
+// Restante do seu código aqui
+
+
+
+// Adicionar informações dos cachorros
+
+
+// Adicionar os dados do Chihuahua à coleção "dogs"
+
 
 // Define a pasta onde estão os arquivos de visualização (views)
 app.set('views', path.join(__dirname, 'views'));
