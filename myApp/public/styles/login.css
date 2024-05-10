@@ -1,7 +1,9 @@
-* {
+body {
     margin: 0;
     padding: 0;
 }
+
+
 
 .button {
     width: 290px;
@@ -16,7 +18,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgb(238, 238, 238);
-    background-image: url("../images/login-bg-edg.webp");
+    background-image: url("/image/login-bg-edg.webp");
     background-size: cover;
     background-position: top;
 }

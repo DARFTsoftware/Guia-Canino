@@ -191,7 +191,7 @@ body {
 
   .favoritar {
     background-color: orange;
-    border-radius: 50%;
+    border-radius: 100%;
     /* Para criar uma forma de bola */
     width: 50px;
     /* Largura e altura iguais para criar uma forma circular */
