@@ -25,8 +25,8 @@ const cachorroData = {
     custosAlimentacaoMensais: '50 - 100',
     descricao: 'O Galgo é uma raça de cachorro elegante e atlética, conhecida por sua velocidade e agilidade. Eles têm uma pelagem curta que requer cuidados mínimos. Galgos são cães gentis e afetuosos, geralmente bons com crianças e outros animais de estimação.'
   };
-  
-  
+
+
 
 // Adicionar os dados do Chihuahua à coleção "dogs"
 dogsCollection.doc('Galgo').set(cachorroData)

@@ -8,9 +8,9 @@
     </div>
     <div class="col-5" id="searchbar">
       <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Busque por um pet..." aria-label="Search"
+        <input id="searchInput" type="search" class="form-control rounded" placeholder="Busque por um pet..." aria-label="Search"
           aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
+        <span type="submit" class="input-group-text border-0" id="search-addon" onclick="searchDog()">
           <i class="fas fa-search"></i>
         </span>
       </div>
