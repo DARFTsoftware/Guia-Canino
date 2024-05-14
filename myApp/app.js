@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path')
-const db = require('./firebase.js');
+//const db = require('./firebase.js');
 
 // app.js
 
@@ -45,6 +45,7 @@ var soloDogRouter = require('./routes/solodog');
 var headerRouter = require('./routes/header');
 var footerRouter = require('./routes/footer');
 var testeRouter = require('./routes/teste');
+var searchRouter = require('./routes/searchRouter');
 
 app.use(express.static(path.join(__dirname, "public")))
 
@@ -61,8 +62,9 @@ app.use('/solodog', soloDogRouter);
 app.use('/header', headerRouter);
 app.use('/footer', footerRouter); 
 app.use('/teste', testeRouter);
+app.use('/search', searchRouter);
 
-app.get('/pesquisa', (req, res) => {
+app.get('/search', (req, res) => {
   const term = req.query.term; // Obtém o parâmetro 'term' da consulta
 
   // Consulta o Firestore para obter os dados do cachorro com o nome correspondente ao termo de pesquisa

@@ -154,8 +154,29 @@
   </div>
   <%- include('./partials/footer') %>
 
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
+  const breed = document.getElementById('searchInput').value;
+
+  fetch(`/search?breed=${breed}`)
+    .then(response => response.json())
+    .then(data => {
+      // Exibir as informações do cachorro na página solodog
+      document.getElementById('tamanho').innerText = data.tamanho;
+      document.getElementById('peso').innerText = data.peso;
+      document.getElementById('corPelagem').innerText = data.corPelagem;
+      document.getElementById('tipoPelagem').innerText = data.tipoPelagem;
+      // Continue adicionando os outros campos conforme necessário
+    })
+    .catch(error => {
+      console.error('Erro ao buscar dados do cachorro:', error);
+    });
+});
+
+  </script>
   <!-- Bootstrap -->
-  <script src="scripts/pesquisa.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>

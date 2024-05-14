@@ -1,16 +1,35 @@
-async function searchDog(searchTerm) {
+const express = require('express');
+const router = express.Router();
+const admin = require('firebase-admin');
+
+const serviceAccount = require('../keys/serviceAccountKey.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
+
+router.get('/', async (req, res) => {
+  const { breed } = req.query;
+
   try {
-    const response = await fetch(`/search?term=${searchTerm}`);
-    if (!response.ok) {
-      throw new Error('Erro ao buscar cachorro: ' + response.statusText);
+    const snapshot = await db.collection('dogs').where('name', '==', breed).get();
+
+    if (snapshot.empty) {
+      res.status(404).send('Raça não encontrada');
+      return;
     }
-    const data = await response.json();
-    // Aqui você pode usar os dados recebidos para atualizar a página
-    console.log(data);
+
+    const breedData = snapshot.docs[0].data();
+    res.json(breedData);
   } catch (error) {
-    console.error('Erro ao buscar cachorro:', error);
+    console.error('Erro ao buscar raça:', error);
+    res.status(500).send('Erro interno do servidor');
   }
-}
+});
+
+module.exports = router;
+
 
 
 
