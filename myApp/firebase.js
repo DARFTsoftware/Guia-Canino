@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-
+//const MongoClient = require('mongodb').MongoClient;
 // Path para o arquivo JSON com a chave privada gerada
 const serviceAccount = require('./keys/serviceAccountKey.json');
 
@@ -10,5 +10,7 @@ admin.initializeApp({
 
 // Obtém uma instância do Firestore
 const db = admin.firestore();
+
+
 
 module.exports = db;

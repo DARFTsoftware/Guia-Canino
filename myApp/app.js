@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path')
+
 //const db = require('./firebase.js');
 
 // app.js
@@ -62,26 +63,8 @@ app.use('/solodog', soloDogRouter);
 app.use('/header', headerRouter);
 app.use('/footer', footerRouter); 
 app.use('/teste', testeRouter);
-app.use('/search', searchRouter);
+ app.use('/api', searchRouter);
 
-app.get('/search', (req, res) => {
-  const term = req.query.term; // Obtém o parâmetro 'term' da consulta
-
-  // Consulta o Firestore para obter os dados do cachorro com o nome correspondente ao termo de pesquisa
-  db.collection('dogs').doc(term).get()
-    .then(doc => {
-      if (!doc.exists) {
-        res.status(404).send('Cachorro não encontrado');
-      } else {
-        const data = doc.data(); // Obtém os dados do cachorro
-        res.json(data); // Retorna os dados como resposta JSON
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao buscar cachorro:', error);
-      res.status(500).send('Erro ao buscar cachorro');
-    });
-});
 
 
 app.listen(3000, () => {

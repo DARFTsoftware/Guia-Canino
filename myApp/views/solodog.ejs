@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="doginfos">
-          <h1 class="h1">Chihuahua</h1>
+          <h1 id="nome" class="h1">Chihuahua</h1>
           <div class="titulo">
             <h5>FÍSICO</h5>
             <div class="barra"></div>
@@ -92,6 +92,7 @@
             <h5>SAÚDE E CUIDADOS</h5>
           </div>
           <div class="barra"></div>
+          <div class="informacoes">
           <div class="infos">
             <li>Propensão a doenças genéticas:</li>
             <li>Cuidados com a pelagem:</li>
@@ -105,6 +106,7 @@
               </ul>
 
           </div>
+        </div>
           <div class="titulo">
             <h5>COMPATIBILIDADE</h5>
           </div>
@@ -154,28 +156,7 @@
   </div>
   <%- include('./partials/footer') %>
 
-
-  <script>
-    document.getElementById('searchForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
-  const breed = document.getElementById('searchInput').value;
-
-  fetch(`/search?breed=${breed}`)
-    .then(response => response.json())
-    .then(data => {
-      // Exibir as informações do cachorro na página solodog
-      document.getElementById('tamanho').innerText = data.tamanho;
-      document.getElementById('peso').innerText = data.peso;
-      document.getElementById('corPelagem').innerText = data.corPelagem;
-      document.getElementById('tipoPelagem').innerText = data.tipoPelagem;
-      // Continue adicionando os outros campos conforme necessário
-    })
-    .catch(error => {
-      console.error('Erro ao buscar dados do cachorro:', error);
-    });
-});
-
-  </script>
+  <script src="scripts/search.js"></script>
   <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

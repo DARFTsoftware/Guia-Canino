@@ -1,54 +1,44 @@
 const express = require('express');
-const router = express.Router();
-const admin = require('firebase-admin');
+const router = express.Router()
+const { MongoClient } = require('mongodb');
 
-const serviceAccount = require('../keys/serviceAccountKey.json');
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
 
-const db = admin.firestore();
 
-router.get('/', async (req, res) => {
-  const { breed } = req.query;
 
-  try {
-    const snapshot = await db.collection('dogs').where('name', '==', breed).get();
+const uri = "mongodb+srv://darftsoftware:11101110@cluster0.8en20si.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-    if (snapshot.empty) {
-      res.status(404).send('Raça não encontrada');
-      return;
-    }
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    const breedData = snapshot.docs[0].data();
-    res.json(breedData);
-  } catch (error) {
-    console.error('Erro ao buscar raça:', error);
-    res.status(500).send('Erro interno do servidor');
+client.connect(err => {
+  if (err) {
+    console.error('Erro ao conectar ao MongoDB', err);
+    process.exit(1);
   }
+
+  const collection = client.db("Guia-Canino").collection("dogs");
+
+  router.get('/dogs', async (req, res) => {
+    try {
+      const dogs = await collection.find({}).toArray();
+      res.json(dogs);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+
+  router.get('/dogs/:nome', async (req, res) => {
+    const nome = req.params.nome;
+    try {
+      const dog = await collection.findOne({ nome: nome });
+      if (dog) {
+        res.json(dog);
+      } else {
+        res.status(404).send('Dog not found');
+      }
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 
 module.exports = router;
-
-
-
-
-// document.getElementById('tamanho').innerText = data.tamanho;
-// document.getElementById('peso').innerText = data.peso;
-// document.getElementById('corPelagem').innerText = data.corPelagem;
-// document.getElementById('tipoPelagem').innerText = data.tipoPelagem;
-// document.getElementById('expectativa').innerText = data.expectativaVida;
-// document.getElementById('energia').innerText = data.nivelEnergia;
-// document.getElementById('temperamento').innerText = data.temperamento;
-// document.getElementById('treinamento').innerText = data.facilidadeTreinamento;
-// document.getElementById('doencas').innerText = data.propensaoDoencasGeneticas;
-// document.getElementById('cuidadoPelagens').innerText = data.necessidadesCuidadosPelagem;
-// document.getElementById('exercicios').innerText = data.necessidadesExercicio;
-// document.getElementById('requisitoEspaco').innerText = data.requisitosEspaco;
-// document.getElementById('socializacao').innerText = data.nivelSocializacao;
-// document.getElementById('protecao').innerText = data.nivelProtecao;
-// document.getElementById('latido').innerText = data.nivelLatido;
-// document.getElementById('compra').innerText = data.precoMedioCompra;
-// document.getElementById('medico').innerText = data.custosVeterinariosMensais;
-// document.getElementById('alimentacao').innerText = data.custosAlimentacaoMensais;
-// document.getElementById('descricao').innerText = data.descricao;
