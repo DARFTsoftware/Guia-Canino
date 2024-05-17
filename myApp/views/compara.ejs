@@ -26,10 +26,14 @@
     <!-- Boostrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        
 </head>
 
 <body>
     <%- include('./partials/header') %>
+
+    <div class="container-fluid p-0">
         <div class="row" id="main-content">
             <!-- Não to usando container fluid pois essa tela tem ser não redimensional, funcionando via H e V scrolls -->
 
@@ -50,13 +54,13 @@
                                     <div class="col-4"></div>
                                     <div class="col-4" id="card">
                                         <div class="pokemon-card">
-                                            <h4>Chihuahua</h4>
+                                            <h4 id="nome">Chihuahua</h4>
                                             <img src="/image/image36.png">
                                         </div>
                                     </div>
                                     <div class="col-4" id="card">
                                         <div class="pokemon-card">
-                                            <h4>Pug</h4>
+                                            <h4 id="nome-2">Pug</h4>
                                             <img src="/image/image40.png">
                                         </div>
 
@@ -90,25 +94,25 @@
                             <!-- Formatacao nova para o background por conta dos itens -->
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Tamanho :</p>
+                                    <p>Tamanho:</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>15cm ~ 23cm</p>
+                                    <p id="tamanho"></p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>15cm ~ 23cm</p>
+                                    <p id="tamanho-2"></p>
                                 </div>
                             </div>
 
                             <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Peso :</p>
+                                    <p>Peso:</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>3kg ~ 5kg</p>
+                                    <p id="peso">3kg ~ 5kg</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>3kg ~ 5kg</p>
+                                    <p id="peso-2">3kg ~ 5kg</p>
                                 </div>
                             </div>
 
@@ -117,36 +121,234 @@
                                     <p>Cor da pelagem :</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>30 variedades</p>
+                                    <p id="corPelagem">30 variedades</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>30 variedades</p>
+                                    <p id="corPelagem-2">30 variedades</p>
                                 </div>
                             </div>
 
                             <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Tipo de pelagem :</p>
+                                    <p>Tipo de pelagem:</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>-</p>
+                                    <p id="tipoPelagem">-</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>-</p>
+                                    <p id="tipoPelagem-2">-</p>
                                 </div>
                             </div>
 
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Expectativa de vida :</p>
+                                    <p>Expectativa de vida:</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>14 ~ 16 anos</p>
+                                    <p id="expectativa">14 ~ 16 anos</p>
                                 </div>
                                 <div class="col" id="infos">
-                                    <p>14 ~ 16 anos</p>
+                                    <p id="expectativa-2">14 ~ 16 anos</p>
                                 </div>
                             </div>
+
+                            <div class="col" id="cell-head">
+                                <div class="t-bg">
+                                    <div class="col">
+                                        <h5>COMPORTAMENTO</h5>
+                                    </div>
+                                </div>
+
+                                <div class="oranje"></div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Nível de energia:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="energia">3kg ~ 5kg</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="energia-2">3kg ~ 5kg</p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Temperamento:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="temperamento"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="temperamento-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Facilidade de treinamento:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="treinamento"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="treinamento-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="col" id="cell-head">
+                                <div class="t-bg">
+                                    <div class="col">
+                                        <h5>SAÚDE E CUIDADOS</h5>
+                                    </div>
+                                </div>
+
+                                <div class="oranje"></div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Propensão à doenças genéticas:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="doencas"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="doencas-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Cuidados com a pelagem:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="cuidadoPelagens"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="cuidadoPelagens-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Necessidades de exercícios:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="exercicios"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="exercicios-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="col" id="cell-head">
+                                <div class="t-bg">
+                                    <div class="col">
+                                        <h5>COMPATIBILIDADE</h5>
+                                    </div>
+                                </div>
+
+                                <div class="oranje"></div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Requisitos de espaço:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="requisitoEspaco"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="requisitoEspaco-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Nível de socialização:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="socializacao"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="socializacao-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Nível de proteção:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="protecao"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="protecao-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Nível do latido:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="latido"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="latido-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="col" id="cell-head">
+                                <div class="t-bg">
+                                    <div class="col">
+                                        <h5>CUSTOS</h5>
+                                    </div>
+                                </div>
+
+                                <div class="oranje"></div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Preço médio de compra:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="compra"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="compra-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-i">
+                                <div class="col" id="topics">
+                                    <p>Custos médicos mensais:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="medico"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="medico-2"></p>
+                                </div>
+                            </div>
+
+                            <div class="row" id="r-p">
+                                <div class="col" id="topics">
+                                    <p>Custo de alimentação mensais:</p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="alimentacao"></p>
+                                </div>
+                                <div class="col" id="infos">
+                                    <p id="alimentacao-2"></p>
+                                </div>
+                            </div>
+
+
                             <!-- Formatacao nova -->
                         </div> <!-- Cell -->
                     </div> <!-- status -->
@@ -160,9 +362,16 @@
                 </div>
 
             </div>
-        </div><!-- main-content -->
+            
+        </div>
+    </div>
 
-        <%- include('./partials/footer') %>
+        <!-- <%- include('./partials/footer') %> -->
+        
+        
+        <!-- main-content -->
+
+        <!-- <%- include('./partials/footer') %> -->
 
         <!-- <script>
 
@@ -182,7 +391,8 @@
 
 
         </script> -->
-
+        <script src="scripts/comparador.js"></script>
+        <script src="scripts/redirectSoloDog.js"></script>
         <!-- Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -193,7 +403,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-            <script src="scripts/pesquisa.js"></script>
 
 </body>
 

@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
         displayError(error.message);
       });
   }
+
+ 
 });
 
 function displayDogInfo(dog) {
@@ -56,3 +58,22 @@ function displayDogInfo(dog) {
 function displayError(message) {
   window.alert("cão não encontrado")
 }
+ 
+    
+
+    document.getElementById('searchCompara').addEventListener('submit', function (event) {
+
+    event.preventDefault();
+
+    //const searchDog = document.getElementById('nome').value;
+    const searchDog = new URLSearchParams(window.location.search).get('nome');
+    const searchCompara = document.getElementById('compara').value;
+    
+   window.location.href = window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;
+  
+
+  });
+
+
+
+
