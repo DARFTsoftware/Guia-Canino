@@ -1,0 +1,26 @@
+
+#res {
+  width: 80%;
+  height: fit-content;
+  margin-right: 5%;
+  margin-left: 5%;
+  color: black;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  /* display: inline; */
+  list-style-type: none;
+}
+
+#res li{
+  padding: 5px 5px;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+#iten {
+  margin-left: 7px;
+  background-color: rgba(255,255,255, 0.95);
+}
+
+
+

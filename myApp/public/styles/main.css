@@ -58,10 +58,6 @@ body {
     border: 1px solid green
 }
 
-/* #site-name {
-    width: fit-content;
-} */
-
 #site-name img {
   max-width: 55%;
   height: auto;

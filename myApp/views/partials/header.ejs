@@ -6,16 +6,24 @@
       </a>
       
     </div>
+    
     <div class="col-5" id="searchbar">
-      <form id="searchForm" method="GET">
-        <div class="input-group rounded">
-          <input type="search" id="searchInput" name="nome" class="form-control rounded" placeholder="Busque por um pet..." aria-label="Search" aria-describedby="search-addon" />
-          <span class="input-group-text border-0" id="search-addon">
-            <i class="fas fa-search"></i>
-          </span>
+        <div class="col">
+          <form id="searchForm" method="GET">
+            <div class="input-group rounded">
+              <input type="search" id="searchInput" name="nome" class="form-control rounded" placeholder="Busque por um pet..." aria-label="Search" aria-describedby="search-addon" />
+              <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+          </form>
+
+          <ul class="searchRes" id="res"></ul>
+           
         </div>
-      </form>
+      
     </div>
+    
     <div class="col-4" id="itens">
       <div class="dropdown unclickable">
         <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
