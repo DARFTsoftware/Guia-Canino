@@ -1,42 +1,73 @@
-// https://www.canva.com/design/DAGDO1AYqMk/caOo9sz8mz-GCZPRtiOZgg/edit?utm_content=DAGDO1AYqMk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 //
 // Fazer um css decente pro autocomplete (Tá paia pq não consigo colocar background)
 // Css do solodog de os campos serem alternados por um normal e outro com o bg cinza!!
-//
+// 
 
-
-// Barra de Pesquisa
+// Barra de Pesquisa e auto complete variaveis
 const inp = document.getElementById("searchInput");
+const comp = document.getElementById("compara");
 const results = document.getElementById('res');
 
-// evento quando clica na barra de pesquisa (POGGERS!)
-inp.addEventListener("focusin", () => {
-  /*
-  fetch(`/api/dogs`)
+// Evento quando digita no search bar
+inp.addEventListener("input", (e) => {
+
+  // val é oq ta sendo digitado; num é pra limitar a quantidade de resultados
+  let val = e.target.value;
+  let num = 0;
+
+  // Mostrar o auto complete
+  results.style.display = "inline";
+  
+  // Quando clica fora da barra de pesquisa
+  inp.addEventListener("focusout", () => {
+    setTimeout( () => {
+      document.getElementById("res").style.display = "none";
+      inp.value = "";
+      val = "";
+    } , 150)
+  });
+
+  // Script pra primeira letra digitar ser maiscula, mesmo após o espaço
+  let element = e.target;
+  var words = element.value.split(' ');
+  element.value = words.map(w => w.slice(0,1).toUpperCase() + w.slice(1)).join(' ');
+
+  // Acessar db
+  fetch(`/api/dogs/six/${val}`)
   .then((response) => {
     return response.json();
   })
   .then((dogs) => {
+    results.innerHTML = '';
+    dogs.forEach(dog => {
+      if(num === 6) return;
+      const li = document.createElement('li');
+      //li.style.backgroundColor = rgba(255, 255, 255, 0.95);
+      
+      li.onclick = () => {
+        displayDogInfo(dog);
+      };
 
-  })
-  */
+      li.textContent = dog.nome;
+      results.appendChild(li);
+      li.id = 'resLi';
+      num++
+      
+    })
+    
+    num = 0;
+    // Caso nao tenha resultados
+    if (dogs.length === 0) {
+      const li = document.createElement('li');
+      li.textContent = 'Nenhum resultado encontrado';
+      results.appendChild(li)
+      li.id = 'nn';
+    }
+    
+  }); // then((dogs)
+}); //Event-Input
 
-  results.style.display = "inline";
-  results.style.marginTop = "3px";
-  results.style.backgroundColor = "red";
-  
-});
-
-// Script que desativa os pre set de pesquisa quando clicka fora da barra de pesquisa (POGGERS!!!)
-
-inp.addEventListener("focusout", (event) => {
-  setTimeout( () => {
-      document.getElementById("res").style.display = "none";
-      inp.value = "";
-  } , 150)
-});
-
-inp.addEventListener("input", (e) => {
+comp.addEventListener("input", (e) => {
   // Evento quando digita no search bar
 
   // value é oq ta sendo digitado
@@ -53,23 +84,22 @@ inp.addEventListener("input", (e) => {
   })
   .then((dogs) => {
     results.innerHTML = '';
+    const searchDog = new URLSearchParams(window.location.search).get("nome");
+    const searchCompara = comp.value;
+    
     dogs.forEach(dog => {
       const li = document.createElement('li');
-      
+
       li.onclick = () => {
         console.log('A')
-        displayDogInfo(dog);
+          window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;;
       };
-
-      li.addEventListener("mouseover" , () => {
-        li.style.cursor = "pointer";
-      })
 
       li.textContent = dog.nome;
       results.appendChild(li);
-        
+
     })
-    
+
   });
 
   /*
@@ -77,7 +107,7 @@ inp.addEventListener("input", (e) => {
   results.style.backgroundColor = "white";
   results.style.overflow = "auto";
   */
-  
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -138,8 +168,7 @@ document.getElementById("searchCompara").addEventListener("submit", function (ev
     const searchDog = new URLSearchParams(window.location.search).get("nome");
     const searchCompara = document.getElementById("compara").value;
 
-    window.location.href =
-      window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;
+    window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;
   });
 
 

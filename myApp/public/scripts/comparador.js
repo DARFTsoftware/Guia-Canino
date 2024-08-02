@@ -1,3 +1,9 @@
+/*
+
+// Deixar essa parte semelhante a como esta no seach.js com auto coplete e tudo mais
+
+*/
+
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const searchTerm = params.get('dog');
@@ -37,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   function displayDogInfo(dog) {
+    document.getElementById("dogphoto").src = dog.image;
+    document.getElementById("dogphoto").alt = dog.nome;
     document.getElementById('nome').innerText = dog.nome;
     document.getElementById('tamanho').innerText = dog.tamanho;
     document.getElementById('peso').innerText = dog.peso;
@@ -59,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function displayDogComparaInfo(dog2) {
+    document.getElementById("dogphoto-2").src = dog2.image;
+    document.getElementById("dogphoto-2").alt = dog2.nome;
     document.getElementById('nome-2').innerText = dog2.nome;
     document.getElementById('tamanho-2').innerText = dog2.tamanho;
     document.getElementById('peso-2').innerText = dog2.peso;

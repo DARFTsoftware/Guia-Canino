@@ -14,7 +14,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     max-width: 100vw; /* Define a largura máxima como o tamanho da viewport */
-    overflow-x: hidden; /*Esconde a barra de rolagem horizontal */
+    /*overflow-x: hidden; /*Esconde a barra de rolagem horizontal */
+    overflow-x: auto;
     /*
         Pra ajustar o background 
         → fazer o main-content ser uma row que tem 3 colunas
@@ -30,7 +31,7 @@ body {
     width: 100vw;
     height: 100px;
     background-color: orange;
-    z-index: 1;
+    z-index: 5;
   }
 
   #header-box {
@@ -79,20 +80,21 @@ body {
   }
 
 .add .a{
+    position: fixed;
     height: 100vh;
     width: 10vw;
     background-color: rgb(236, 244, 244);
 }
 
 .add .b {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     display: block;
     height: 100vh;
     width: 10vw;
     background-color: rgb(236, 244, 244);
-    z-index: -1;
+    z-index: -10;
 }
 
 
@@ -105,14 +107,18 @@ body {
     margin-left: 0px;
     padding-left: 0px;
     background-color: rgb(255, 255, 255) !important;
+    z-index: 1;
 } 
 
 .pokemons{
     height: fit-content;
+    
 }
 
 .pokemons #align-img {
     width: fit-content;
+    padding-top: 30px;
+    margin-top: 30px;
     margin-left: 0px;
     padding-left: 0px;
 }

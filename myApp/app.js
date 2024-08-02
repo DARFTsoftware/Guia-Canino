@@ -36,6 +36,7 @@ app.set('view engine', 'ejs'); // Define o mecanismo de visualização como EJS
 
 var cadastroRouter = require('./routes/cadastro');
 var comparaRouter = require('./routes/compara');
+var compUltRouter = require('./routes/compUlt');
 var emailRouter = require('./routes/e-mail');
 var favoitosRouter = require('./routes/favoritos');
 var loginRouter = require('./routes/login');
@@ -54,6 +55,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use('/', mainMenuRouter);
 app.use('/cadastro', cadastroRouter);
 app.use('/compara', comparaRouter);
+app.use('/compult', compUltRouter);
 app.use('/email', emailRouter);
 app.use('/favoritos', favoitosRouter);
 app.use('/login', loginRouter);
