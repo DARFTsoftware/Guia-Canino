@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 const { MongoClient } = require('mongodb');
 
-const uri = "mongodb+srv://darftsoftware:11101110@cluster0.8en20si.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env['MongoURI'];
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 

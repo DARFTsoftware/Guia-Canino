@@ -5,12 +5,14 @@
 <head>
     <title>Comparador</title>
     <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/compara.css">
     <link>
     <!-- Boostrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Us -->
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="styles/compult.css">
 
 </head>
 
@@ -20,36 +22,56 @@
     <div class="container-fluid p-0">
         <div class="row" id="main-content">
             <!-- Não to usando container fluid pois essa tela tem ser não redimensional, funcionando via H e V scrolls -->
+            <div id="comp-box">
 
-            <div class="add">
-                <div class="a">
-                    <div class="col-a"></div>
-                    <div class="col-b"></div>
+                <div class="roww">
+                    <div class="col" id="coll">
+                        <div class="col"></div>
+                    </div>
+                    <div class="col" id="coll">
+                        <div class="col" id="card">
+                            <div class="row" id="x">
+                                <div></div>
+                                <p> x </p>
+                            </div>
+                            <div class="pokemon-card">
+                                <h4 id="nome">Chihuahua</h4>
+                                <img id="dogphoto" src="/image/image36.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" id="coll">
+                        <div class="col" id="card">
+                            <div class="row" id="x">
+                                <div></div>
+                                <p> x </p>
+                            </div>
+                            <div class="pokemon-card">
+                                <h4 id="nome-2">Pug</h4>
+                                <img id="dogphoto-2" src="/image/image40.png">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col" id="coll">
+                        <div class="col">
+                            <input type="search" id="compara" name="compara" class="form-control rounded" placeholder="Buscar" aria-label="Search" aria-describedby="search-addon"/>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-8 mx-auto" id="comp-box">
+                
 
-
+                
                     <div class="pokemons">
                         <div class="row" id="align-img">
                             <div class="col">
-                                <div style="width: 910px"></div>
                                 <div class="row" id="row-card">
-                                    <div class="col-4"></div>
-                                    <div class="col-4" id="card">
-                                        <div class="pokemon-card">
-                                            <h4 id="nome">Chihuahua</h4>
-                                            <img id="dogphoto" src="/image/image36.png">
-                                        </div>
-                                    </div>
+                                    <!-- Essa primeira div dita o tamnho de uma col do compara! -->
+                                    
+                                    
 
-                                    <div class="col-4" id="card">
-                                        <div class="pokemon-card">
-                                            <h4 id="nome-2">Pug</h4>
-                                            <img id="dogphoto-2" src="/image/image40.png">
-                                        </div>
-
-                                    </div>
+                                    
+                                    
 
                                 </div>
                             </div>
@@ -78,21 +100,24 @@
                             </div>
 
                             <!-- Formatacao nova para o background por conta dos itens -->
-                            <div class="row" id="r-i">
-                                <div class="col" id="topics">
-                                    <p>Tamanho:</p>
-                                </div>
-                                <div class="col" id="infos">
-                                    <p id="tamanho"></p>
-                                </div>
-                                <div class="col" id="infos">
-                                    <p id="tamanho-2"></p>
+                            <div class="col">
+                                <div class="row" id="r-i">
+                                    <div class="col" id="topics">
+                                        <p>Tamanho</p>
+                                    </div>
+                                    <div class="col" id="infos">
+                                        <p id="tamanho"></p>
+                                    </div>
+                                    <div class="col" id="infos">
+                                        <p id="tamanho-2"></p>
+                                    </div>
                                 </div>
                             </div>
+                            
 
                             <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Peso:</p>
+                                    <p>Peso</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="peso">3kg ~ 5kg</p>
@@ -104,7 +129,7 @@
 
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Cor da pelagem :</p>
+                                    <p>Cor da pelagem </p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="corPelagem">30 variedades</p>
@@ -116,7 +141,7 @@
 
                             <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Tipo de pelagem:</p>
+                                    <p>Tipo de pelagem</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="tipoPelagem">-</p>
@@ -128,7 +153,7 @@
 
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Expectativa de vida:</p>
+                                    <p>Expectativa de vida</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="expectativa">14 ~ 16 anos</p>
@@ -141,16 +166,16 @@
                             <div class="col" id="cell-head">
                                 <div class="t-bg">
                                     <div class="col">
-                                        <h5>COMPORTAMENTO</h5>
+                                        <h5>Comportamento</h5>
                                     </div>
                                 </div>
 
                                 <div class="oranje"></div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Nível de energia:</p>
+                                    <p>Nível de energia</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="energia">3kg ~ 5kg</p>
@@ -160,9 +185,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-i">
+                            <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Temperamento:</p>
+                                    <p>Temperamento</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="temperamento"></p>
@@ -172,9 +197,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Facilidade de treinamento:</p>
+                                    <p>Facilidade de treinamento</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="treinamento"></p>
@@ -187,7 +212,7 @@
                             <div class="col" id="cell-head">
                                 <div class="t-bg">
                                     <div class="col">
-                                        <h5>SAÚDE E CUIDADOS</h5>
+                                        <h5>Saúde e Cuidados</h5>
                                     </div>
                                 </div>
 
@@ -196,7 +221,7 @@
 
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Propensão à doenças genéticas:</p>
+                                    <p>Propensão à doenças genéticas</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="doencas"></p>
@@ -208,7 +233,7 @@
 
                             <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Cuidados com a pelagem:</p>
+                                    <p>Cuidados com a pelagem</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="cuidadoPelagens"></p>
@@ -220,7 +245,7 @@
 
                             <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Necessidades de exercícios:</p>
+                                    <p>Necessidades de exercícios</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="exercicios"></p>
@@ -233,16 +258,16 @@
                             <div class="col" id="cell-head">
                                 <div class="t-bg">
                                     <div class="col">
-                                        <h5>COMPATIBILIDADE</h5>
+                                        <h5>Compatibilidade</h5>
                                     </div>
                                 </div>
 
                                 <div class="oranje"></div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Requisitos de espaço:</p>
+                                    <p>Requisitos de espaço</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="requisitoEspaco"></p>
@@ -252,9 +277,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-i">
+                            <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Nível de socialização:</p>
+                                    <p>Nível de socialização</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="socializacao"></p>
@@ -264,9 +289,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Nível de proteção:</p>
+                                    <p>Nível de proteção</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="protecao"></p>
@@ -276,9 +301,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-i">
+                            <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Nível do latido:</p>
+                                    <p>Nível do latido</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="latido"></p>
@@ -291,16 +316,16 @@
                             <div class="col" id="cell-head">
                                 <div class="t-bg">
                                     <div class="col">
-                                        <h5>CUSTOS</h5>
+                                        <h5>Custos</h5>
                                     </div>
                                 </div>
 
                                 <div class="oranje"></div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Preço médio de compra:</p>
+                                    <p>Preço médio de compra</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="compra"></p>
@@ -310,9 +335,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-i">
+                            <div class="row" id="r-p">
                                 <div class="col" id="topics">
-                                    <p>Custos médicos mensais:</p>
+                                    <p>Custos médicos mensais</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="medico"></p>
@@ -322,9 +347,9 @@
                                 </div>
                             </div>
 
-                            <div class="row" id="r-p">
+                            <div class="row" id="r-i">
                                 <div class="col" id="topics">
-                                    <p>Custo de alimentação mensais:</p>
+                                    <p>Custo de alimentação mensais</p>
                                 </div>
                                 <div class="col" id="infos">
                                     <p id="alimentacao"></p>
@@ -344,9 +369,8 @@
         </div>
     </div>
 
-        </script> -->
+        </script>
         <script src="scripts/comparador.js"></script>
-        <script src="scripts/redirectSoloDog.js"></script>
         <!-- Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
