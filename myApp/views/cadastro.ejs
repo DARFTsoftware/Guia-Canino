@@ -17,20 +17,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/cadastro.css">
+    <!-- Script -->
+    <link rel="script" href="/scripts/cadastro.js">
 </head>
 
 <body>
 
+<!-- Script -->
+    <script>
+        import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+        import { auth } from "../services/firebaseConfig";
+        import { useState } from "react";
+        
+
+        export function Login() {
+            const [email, setEmail] = useState("");
+            const [password, setPassword] = useState("");
+            
+            const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+            
+            function handleSignOut(e) {
+                e.preventDefault();
+                createUserWithEmailAndPassword(email, password);
+            }
+        if(loading) {
+         return <p>carregando...</p>;
+            }
+        }
+    </script>
     <div class="container-fluid p-0">
         <div class="col" id="box">
             <h1>Sign-up</h1>
             <form action="">
                 <div class="box-itens">
                     <ul>
-                        <li><input type="text" id="email" name="email" placeholder="Email" size="27"></li>
+                        <li><input type="text" id="email" name="email" placeholder="Email" size="27" onchange="e => setEmail(e.target.value)"></li>
                         <li><input type="text" id="user" name="user" placeholder="Usuario" size="27"></li>
-                        <li><input type="password" id="pass" name="pass" placeholder="Senha" size="27"></li>
-                        <li><input type="button" id="button-login" class="button" accesskey="enter" value="Registrar">
+                        <li><input type="password" id="pass" name="pass" placeholder="Senha" size="27" onchange="e => setPassword(e.target.value) "></li>
+                        <li><input type="button" id="button-login" class="button" accesskey="enter" value="Registrar" onclick="handleSignOut">
                         </li>
                     </ul>
                     <div>

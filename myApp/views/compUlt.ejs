@@ -26,7 +26,7 @@
 
                 <div class="roww">
                     <div class="col" id="coll">
-                        <div class="col"></div>
+                        <div class="col" id="card-top"></div>
                     </div>
                     <div class="col" id="coll">
                         <div class="col" id="card">
@@ -54,8 +54,11 @@
                         </div>
                     </div>
                     <div class="col" id="coll">
-                        <div class="col">
+                        
+                        <div class="col" id="card-search">
+                            <div id="card-search-space"></div>
                             <input type="search" id="compara" name="compara" class="form-control rounded" placeholder="Buscar" aria-label="Search" aria-describedby="search-addon"/>
+                            <ul class="searchRes" id="resComp"></ul>
                         </div>
                     </div>
                 </div>
@@ -369,7 +372,9 @@
         </div>
     </div>
 
-        </script>
+    <script>
+        
+    </script>
         <script src="scripts/comparador.js"></script>
         <!-- Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
