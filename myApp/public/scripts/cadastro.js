@@ -1,4 +1,5 @@
-document.getElementById('button-login').addEventListener('click', function() {
-    // Redirecionar para a página desejada
-    window.location.href = '/login';
+/*
+document.getElementById('submitSignUp').addEventListener('click', () => {
+  SignUp();
 });
+*/

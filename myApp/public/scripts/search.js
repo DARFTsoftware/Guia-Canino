@@ -83,6 +83,23 @@ comp.addEventListener("input", (e) => {
     return response.json();
   })
   .then((dogs) => {
+    /* 
+    // Get search params
+    let url = new URL("https://example.com?foo=1&bar=2");
+    let params = new URLSearchParams(url.search);
+
+    //Add a second foo parameter.
+    params.append("foo", 4);
+
+    console.log(params.getAll("foo")); //Prints ["1","4"].
+
+
+    // Example 2
+    https://example.com/?name=Jonathan&age=18
+    let params = new URLSearchParams(document.location.search);
+    let name = params.get("name"); // is the string "Jonathan"
+    let age = parseInt(params.get("age"), 10); // is the number 18
+    */
     results.innerHTML = '';
     const searchDog = new URLSearchParams(window.location.search).get("nome");
     const searchCompara = comp.value;

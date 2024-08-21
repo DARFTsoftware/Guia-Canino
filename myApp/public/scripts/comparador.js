@@ -1,18 +1,25 @@
+//const { set } = require("mongoose");
+
 document.addEventListener("DOMContentLoaded", function () {
+  // params são os parametros da url
   const params = new URLSearchParams(window.location.search);
+  // searchN é o parametro passado na url
   const searchTerm = params.get("dog");
   const searchDog = params.get("compara");
+
 
   if (searchTerm) {
     fetch(`/api/dogs/${searchTerm}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Cão não encontrado");
+          throw new Error("Cão não encontrad");
         }
         return response.json();
       })
       .then((dog) => {
-        displayDogInfo(dog);
+        createColl(dog);
+        setAlign()
+        rowAlignInfinity()
       })
       .catch((error) => {
         displayError(error.message);
@@ -23,12 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(`/api/dogs/${searchDog}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Cão não encontrado");
+          throw new Error("Cão não encont");
         }
         return response.json();
       })
       .then((dog2) => {
-        displayDogComparaInfo(dog2);
+        createColl(dog2);
+        setAlign()
+        rowAlignInfinity()
+        
       })
       .catch((error) => {
         displayError(error.message);
@@ -138,8 +148,10 @@ comp.addEventListener("input", (e) => {
         const li = document.createElement("li");
 
         li.onclick = () => {
-          console.log("A");
-
+          console.log(dog.name + "adicionado")
+          createColl(dog)
+          setAlign();
+          setAlign();
           //window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;;
         };
 
@@ -160,64 +172,354 @@ comp.addEventListener("input", (e) => {
     });
 });
 
-// Função para exibir as informações do cão
-function displayDogInfo(dog) {
-  document.getElementById("dogphoto").src = dog.image;
-  document.getElementById("dogphoto").alt = dog.nome;
-  document.getElementById("nome").innerText = dog.nome;
-  document.getElementById("tamanho").innerText = dog.tamanho;
-  document.getElementById("peso").innerText = dog.peso;
-  document.getElementById("corPelagem").innerText = dog.corPelagem;
-  document.getElementById("tipoPelagem").innerText = dog.tipoPelagem;
-  document.getElementById("expectativa").innerText = dog.expectativaVida;
-  document.getElementById("energia").innerText = dog.nivelEnergia;
-  document.getElementById("temperamento").innerText = dog.temperamento;
-  document.getElementById("treinamento").innerText = dog.facilidadeTreinamento;
-  document.getElementById("doencas").innerText = dog.propensaoDoencasGeneticas;
-  document.getElementById("cuidadoPelagens").innerText =
-    dog.necessidadesCuidadosPelagem;
-  document.getElementById("exercicios").innerText = dog.necessidadesExercicio;
-  document.getElementById("requisitoEspaco").innerText = dog.requisitosEspaco;
-  document.getElementById("socializacao").innerText = dog.nivelSocializacao;
-  document.getElementById("protecao").innerText = dog.nivelProtecao;
-  document.getElementById("latido").innerText = dog.nivelLatido;
-  document.getElementById("compra").innerText = dog.precoMedioCompra;
-  document.getElementById("medico").innerText = dog.custosVeterinariosMensais;
-  document.getElementById("alimentacao").innerText =
-    dog.custosAlimentacaoMensais;
+function createColl(dog) {
+
+  // Delete children content
+  /*
+    const collection = document.getElementById("myDIV").children;
+    for (let i = 0; i < collection.length; i++) {
+      collection[i].innerHTML = "";;
+    }
+  */
+  
+  // add class and id to a element
+  /*
+  element.classList.add("my-class");
+  element.id = "my-id";
+  */
+  let rowMain = document.querySelector(".roww");
+
+  // Checkar as colunas vazias
+  let collumm;
+  if (document.querySelector("#coll-1") == null) {
+    collumm = 1
+  } 
+  else if (document.querySelector("#coll-2") == null) {
+    collumm = 2
+  }
+  else if (document.querySelector("#coll-3") == null) {
+    collumm = 3
+  }
+  else if (document.querySelector("#coll-4") == null) {
+    collumm = 4
+  }
+
+  // Criando a div que vai ter tudo 
+  let coll = document.createElement("div");
+  coll.classList.add("col", "col-content");
+  coll.id = "coll-" + collumm;
+  rowMain.appendChild(coll);
+
+  // Div do primeiro bloco com o nome e img do dog
+  const card = document.createElement("div");
+  card.classList.add("col");
+  card.id = "card";
+  coll.appendChild(card);
+  
+  const x = document.createElement("div");
+  x.classList.add("row");
+  x.id = "x";
+  card.appendChild(x);
+  const s = document.createElement("div");
+  x.appendChild(s)
+  const p = document.createElement("p");
+  p.innerText = "x";
+  p.id = "p"+collumm;
+  x.appendChild(p);
+
+  p.addEventListener("click" , () => {
+    coll.remove()
+    console.log(coll.id + " foi removido");
+    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 4) {
+      document.getElementById("coll-2").id = "coll-1";
+      document.getElementById("coll-3").id = "coll-2";
+    }
+    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 4) {
+      document.getElementById("coll-3").id = "coll-2";
+    }
+    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 3) {
+      document.getElementById("coll-2").id = "coll-1";
+    }
+    if(coll.id == "coll-1" && document.querySelector(".roww").children.length == 2){
+      /**
+      * Retorna para o mainMenu quando (ou tela compara meio searchBarComp do ComparaCelular)
+      */
+      console.log("Base")
+      setAlign()
+      //document.querySelectorAll('#coll-topics p').style.padding = "50px 10px 20px 30px";
+    }
+    
+  })
+
+  const imgCard = document.createElement("div");
+  imgCard.classList.add("pokemon-card");
+  card.appendChild(imgCard);
+  const pName = document.createElement("h4");
+  pName.id = "nome-" + collumm;
+  pName.innerHTML = dog.nome;
+  imgCard.appendChild(pName);
+  const img = document.createElement("img");
+  img.id = "dogphoto-" + collumm;
+  img.src = dog.image;
+  imgCard.appendChild(img);
+
+  const cell = document.createElement("div")
+  cell.classList.add("col");
+  cell.id = "cell-head";
+  coll.appendChild(cell);
+
+  // Div do conteudo sobre o dog
+  // Primero bloco
+  const oranje1 = document.createElement("div");
+  oranje1.classList.add("no-oranje");
+  cell.appendChild(oranje1);
+  
+  const inf = document.createElement("div");
+  inf.classList.add("col");
+  inf.id = "infos1"
+  cell.appendChild(inf);
+  
+  createRow(dog.tamanho, 1, inf);
+  createRow(dog.peso, 2, inf);
+  createRow(dog.corPelagem, 3, inf);
+  createRow(dog.tipoPelagem, 4, inf);
+  createRow(dog.expectativaVida, 5, inf);
+
+  /*
+  for (let i = 0; i <= 4; i++) {
+    rowAlign(1, i);
+  }
+  */
+  
+  // Segundo bloco
+  const oranje2 = document.createElement("div");
+  oranje2.classList.add("no-oranje");
+  cell.appendChild(oranje2);
+
+  const inf2 = document.createElement("div");
+  inf2.classList.add("col");
+  inf2.id = "infos2"
+  cell.appendChild(inf2);
+
+  createRow(dog.nivelEnergia, 1, inf2);
+  createRow(dog.temperamento, 2, inf2);
+  createRow(dog.facilidadeTreinamento, 3, inf2);
+  
+  // Terceiro bloco
+  const oranje3 = document.createElement("div");
+  oranje3.classList.add("no-oranje");
+  cell.appendChild(oranje3);
+
+  const inf3 = document.createElement("div");
+  inf3.classList.add("col");
+  inf3.id = "infos3"
+  cell.appendChild(inf3);
+
+  createRow(dog.propensaoDoencasGeneticas, 1, inf3);
+  createRow(dog.necessidadesCuidadosPelagem, 2, inf3);
+  createRow(dog.necessidadesExercicio, 3, inf3);
+  
+  // Quarto bloco
+  const oranje4 = document.createElement("div");
+  oranje4.classList.add("no-oranje");
+  cell.appendChild(oranje4);
+
+  const inf4 = document.createElement("div");
+  inf4.classList.add("col");
+  inf4.id = "infos4"
+  cell.appendChild(inf4);
+
+  createRow(dog.requisitosEspaco, 1, inf4);
+  createRow(dog.nivelSocializacao, 2, inf4);
+  createRow(dog.nivelProtecao, 3, inf4);
+  createRow(dog.nivelLatido, 4, inf4);
+  
+  // Quinto bloco
+  const oranje5 = document.createElement("div");
+  oranje5.classList.add("no-oranje");
+  cell.appendChild(oranje5);
+
+  const inf5 = document.createElement("div");
+  inf5.classList.add("col");
+  inf5.id = "infos5"
+  cell.appendChild(inf5);
+  
+  createRow(dog.precoMedioCompra, 1, inf5);
+  createRow(dog.custosVeterinariosMensais, 2, inf5);
+  createRow(dog.custosAlimentacaoMensais, 3, inf5);
+
+  let ss = document.querySelector("#coll-search")
+  rowMain.appendChild(ss)
+  // Função que cria os blocos de infos
+  // content = a info que vai ser puxada da database ex: dog.peso
+  // rowww = a linha do bloco para fins de alinhamento e css
+  // infor = o bloco que as infos vão ser alocadas, tbm pra fins de alinhamento
+  function createRow (content, rowww, infor) {
+    const roww = document.createElement("div");
+    roww.classList.add("row");
+
+    if (rowww % 2 == 1) { roww.id = "r-hard"; }
+    else if (rowww % 2 == 0) { roww.id = "r-soft"; }
+
+    infor.appendChild(roww);
+    const pgraph = document.createElement("p");
+    pgraph.innerHTML = content;
+    roww.appendChild(pgraph);
+
+  }
+  
 }
 
-function displayDogComparaInfo(dog2) {
-  document.getElementById("dogphoto-2").src = dog2.image;
-  document.getElementById("dogphoto-2").alt = dog2.nome;
-  document.getElementById("nome-2").innerText = dog2.nome;
-  document.getElementById("tamanho-2").innerText = dog2.tamanho;
-  document.getElementById("peso-2").innerText = dog2.peso;
-  document.getElementById("corPelagem-2").innerText = dog2.corPelagem;
-  document.getElementById("tipoPelagem-2").innerText = dog2.tipoPelagem;
-  document.getElementById("expectativa-2").innerText = dog2.expectativaVida;
-  document.getElementById("energia-2").innerText = dog2.nivelEnergia;
-  document.getElementById("temperamento-2").innerText = dog2.temperamento;
-  document.getElementById("treinamento-2").innerText =
-    dog2.facilidadeTreinamento;
-  document.getElementById("doencas-2").innerText =
-    dog2.propensaoDoencasGeneticas;
-  document.getElementById("cuidadoPelagens-2").innerText =
-    dog2.necessidadesCuidadosPelagem;
-  document.getElementById("exercicios-2").innerText =
-    dog2.necessidadesExercicio;
-  document.getElementById("requisitoEspaco-2").innerText =
-    dog2.requisitosEspaco;
-  document.getElementById("socializacao-2").innerText = dog2.nivelSocializacao;
-  document.getElementById("protecao-2").innerText = dog2.nivelProtecao;
-  document.getElementById("latido-2").innerText = dog2.nivelLatido;
-  document.getElementById("compra-2").innerText = dog2.precoMedioCompra;
-  document.getElementById("medico-2").innerText =
-    dog2.custosVeterinariosMensais;
-  document.getElementById("alimentacao-2").innerText =
-    dog2.custosAlimentacaoMensais;
+function setAlign() {
+  for (let i = 0; i <= 4; i++) {
+    rowAlign(1, i);
+  }
+  for (let i = 0; i <= 2; i++) {
+    rowAlign(2, i);
+  }
+  for (let i = 0; i <= 2; i++) {
+    rowAlign(3, i);
+  }
+  for (let i = 0; i <= 3; i++) {
+    rowAlign(4, i);
+  }
+  for (let i = 0; i <= 2; i++) {
+    rowAlign(5, i);
+  }
 }
+
+// Função para alinhar o tamanhos das linhas de infos
+// block = o bloco que vai ser checkado
+// rowww = a linha que vai ser checkada
+function rowAlignInfinity() {
+  let collNumber = document.querySelector(".roww").children.length
+  let infosNumber = collNumber - 2
+
+  let colls = []
+
+  colls[0] = document.querySelector(".roww #coll-topics")
+
+  for (let i = 1; i <= infosNumber; i++) {
+    colls.push(document.querySelector(".roww #coll-" + i));
+  };
+
+  console.log(colls);
+
+  /*
+
+  for (let i = 0; i < colls.length; i++) {
+    rows.push(document.querySelector(".roww").children[i].children[1].children);
+  }
+
+  console.log("A")
+  console.log(rows);
+  */
+}
+
+function rowAlign(block, rowww) {
+  //let b = document.querySelector("#topics5").children[2].offsetHeight
+
+  //console.log("Bloco :" + block + " na linha :" + rowww)
+
+  let coll1 = document.querySelector("#coll-topics #topics" + block);
+  //console.log(coll1);
+  let coll2 = document.querySelector("#coll-1 #infos" + block);
+  //console.log(coll2);
+  let coll3 = document.querySelector("#coll-2 #infos" + block);
+  //console.log(coll3);
+  let coll4 = document.querySelector("#coll-3 #infos" + block);
+  //console.log(coll4);
+  
+  let row1;
+  if(coll1 != null) {
+    if(document.querySelector(".roww").children.length == 2){
+      coll1.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+    }
+    row1 = coll1.children[rowww].children[0].offsetHeight;
+  }
+  let row2 
+  if(coll2 != null) {
+    row2  = coll2.children[rowww].children[0].offsetHeight;
+  }
+  let row3;
+  if(coll3 != null) {
+    row3 = coll3.children[rowww].children[0].offsetHeight;
+  }
+  let row4;
+  if(coll4 != null) {
+    row4 = coll4.children[rowww].children[0].offsetHeight;
+  }
+  
+  
+  //console.log("ROWS_F")
+
+  let check; 
+  
+  function checkColls() {
+    if(coll1 != null && coll2 != null && coll3 != null && coll4 != null) {
+      check = Math.max(row1, row2, row3, row4);
+      console.log("check4 : " + check)
+    } 
+    else if(coll1 != null && coll2 != null && coll3 != null && coll4 == null) {
+      check = Math.max(row1, row2, row3);
+      console.log("check3 : " + check);
+    }
+    else if(coll1 != null && coll2 != null && coll3 == null && coll4 == null) {
+      check = Math.max(row1, row2);
+      console.log("check2 : " + check);
+    } 
+    else if(coll1 != null && coll2 == null && coll3 == null && coll4 == null) {
+      check = row1;
+      console.log("check1 : " + check);
+    }
+      
+    
+  }
+
+  checkColls();
+  //console.log("Check :" + check);
+
+  if (coll1 != null) {
+    if(row1 != check) {
+      coll1.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row1 = coll1.children[rowww].children[0].offsetHeight;
+      let diff = (check - row1)/ 2 + 2;
+      coll1.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+  if (coll2 != null) {
+    if(row2 != check) {
+      coll2.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row2 = coll2.children[rowww].children[0].offsetHeight;
+      let diff = (check - row2)/ 2 + 2;
+      coll2.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+  if (coll3 != null) {
+    if(row3 != check) {
+      coll3.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row3 = coll3.children[rowww].children[0].offsetHeight;
+      let diff = (check - row3)/ 2 + 2;
+      coll3.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+  if (coll4 != null) {
+    if(row4 != check) {
+      coll4.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row4 = coll4.children[rowww].children[0].offsetHeight;
+      let diff = (check - row4) / 2 + 2;
+      coll4.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+}
+
+
+
 
 function displayError(message) {
-  window.alert("cão não encontrado");
+
 }
