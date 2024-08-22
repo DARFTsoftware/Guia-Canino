@@ -3,24 +3,13 @@ body {
     padding: 0;
 }
 
-
-
-.button {
-    width: 290px;
-    border-radius: 20px;
-    color: aliceblue;
-    background-color: #AF6666;
-    text-align: center;
-    padding-left: 0;
-}
-
 .container-fluid {
     width: 100vw;
     height: 100vh;
     background-color: rgb(238, 238, 238);
     background-image: url("/image/login-bg-edg.webp");
     background-size: cover;
-    background-position: top;
+background-position: top;
 }
 
 #bg {
@@ -58,6 +47,15 @@ ul {
 
 li {
     margin-top: 20px;
+}
+
+.button {
+    width: 290px;
+    border-radius: 20px;
+    color: aliceblue;
+    background-color: #AF6666;
+    text-align: center;
+    padding-left: 0;
 }
 
 #user {

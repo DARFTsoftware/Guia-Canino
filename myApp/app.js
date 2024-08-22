@@ -42,7 +42,7 @@ var testeRouter = require("./routes/teste");
 var searchRouter = require("./routes/searchRouter");
 var carroRouter = require("./routes/carro");
 var aboutRouter = require("./routes/about");
-var firebaseRouter = require("./routes/firebaseRoute");
+//var firebaseRouter = require("./routes/firebaseRoute");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -62,7 +62,7 @@ app.use("/teste", testeRouter);
 app.use("/carro", carroRouter);
 app.use("/about", aboutRouter);
 app.use("/api", searchRouter);
-app.use("/fireb", firebaseRouter);
+//app.use("/fireb", firebaseRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");

@@ -1,5 +1,5 @@
  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  import { initializeApp } from "firebase/app";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"
@@ -9,14 +9,16 @@
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+
+const firebaseConfig = {
   apiKey: "AIzaSyAE1Uby4LmGAe8PNgmt-nIEkvOY4otW8bU",
   authDomain: "auth-users-guia-canino.firebaseapp.com",
+  databaseURL: "https://auth-users-guia-canino-default-rtdb.firebaseio.com",
   projectId: "auth-users-guia-canino",
   storageBucket: "auth-users-guia-canino.appspot.com",
   messagingSenderId: "971839385029",
   appId: "1:971839385029:web:c75c07b92fb5e3541bafac"
-  };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -35,7 +37,7 @@ function SignUp(){
 
     const db = getFirestore();
     const userRef = doc(db, 'users', user.uid);
-    await setDoc(userRef, { email: document.getElementById("email").value });
+    SignUp(userRef, { email: document.getElementById("email").value });
     
   }).catch(function(error){
     console.error("Erro ao cadastrar:", error);
@@ -43,6 +45,7 @@ function SignUp(){
   });
 
 }
+
 
 
 const analytics = getAnalytics(app);

@@ -3,13 +3,8 @@
     padding: 0;
 }
 
-.button {
-    width: 270px;
-    border-radius: 20px;
-    color: #FFFFFF;
-    background-color: #AFA466;
-    text-align: center;
-    padding-left: 0;
+.col {
+    margin: 0px;
 }
 
 .container-fluid {
@@ -21,29 +16,32 @@
     background-position: top;
 }
 
-#box {
+.box {
     border-radius: 16px;
-    width: 400px;
-    height: 200px;
+    width: fit-content;
+    height: fit-content;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-top: 30px;
+    background-color: white;
+    margin: 0px;
+    padding: 20px 30px 15px 30px;
+    border: 1px solid black;
     align-items: center;
     align-content: center;
     text-align: center;
-    padding-top: 30px;
 }
 
-.area {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 0);
+
+.box-itens {
+    margin: 0px;
 }
 
 ul {
     list-style-type: none;
+    padding: 0px;
 }
 
 li {
@@ -60,21 +58,26 @@ li {
     background-color: #D9D9D9;
 }
 
+.button {
+    width: 270px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    background-color: #AFA466;
+    text-align: center;
+    padding-left: 0;
+}
+
 #button-login {
     margin-top: 12px;
     margin-bottom: 8px;
 }
+
 
 li input {
     border-radius: 20px;
     padding-left: 10px;
     padding-top: 2px;
     padding-bottom: 2px;
-}
-
-td {
-    padding-left: 30px;
-    padding-right: 10px;
 }
 
 .messageDiv{

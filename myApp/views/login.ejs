@@ -1,3 +1,35 @@
+<!--
+Trello Cousas
+
+1. Login → coisas
+
+
+
+1.1 - Conectar a database;
+1.2 - Fazer o script que pegue as infos e jogue para a database;
+1.2.1 - Adicionar um sistema que encrypte a senha e blá blá;
+
+→ Após realizar o login e cadastro  
+1.3 - Adicionar API do Google de auth(que tem suporte para o mongoBD);
+1.4 - Adicionar Sessão à aplicação
+1.5 - Recuperação de senha e afins
+1.6 - Coisas para se fazer quando logado
+1.6.1 - Perfil
+1.6.2 - Favoritos
+
+2. UI → js e css de páginas
+
+2.1 - Compult
+2.1.1 - A imagem dos dogs 
+2.1.2 - As colos do background das infos
+2.2 - footer
+2.3 - header
+
+3. Nova rota para acessa compult além do searchbar
+
+3.1 - 
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +46,7 @@
         <div class="area-logo">
             <img src="/image/login-bg.webp" id="bg">
         </div>
-        <div class="col" id="box">
+<div class="col" id="box">
             <img src="/image/LogarTrans.webp" width="130" id="logo">
             <form method="post" action="">
                 <div id="signInMessage" class="messageDiv" style="display:nome;"></div>
@@ -23,7 +55,7 @@
                     <ul>
                         <li><input type="text" id="user" name="user" placeholder="Usuario ou email" size="27" onchange="e => setEmail(e.target.value)"></li>
                         <li><input type="password" id="pass" name="pass" placeholder="Senha" size="27" onchange="e => setPassword(e.target.value) "></li>
-                        <li><input type="button" id="button-login" class="button" accesskey="enter" value="Logar" onclick={handleSignIn}></li>
+                        <li><input type="button" id="button-login" class="button" accesskey="enter" value="Logar"></li>
                     </ul>
                     <table>
                         <tr>
