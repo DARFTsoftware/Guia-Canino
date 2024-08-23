@@ -36,37 +36,46 @@ Trello Cousas
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="/styles/login.css">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 
 <body>
 
     <div class="container-fluid p-0">
-        <div class="area-logo">
+        <div class="backgroundImg">
             <img src="/image/login-bg.webp" id="bg">
         </div>
-<div class="col" id="box">
+        <div class="box">
             <img src="/image/LogarTrans.webp" width="130" id="logo">
             <form method="post" action="">
-                <div id="signInMessage" class="messageDiv" style="display:nome;"></div>
-                
+                <!-- <div id="signInMessage" class="messageDiv" style="display:nome;"></div> -->
                 <div class="box-itens">
-                    <ul>
-                        <li><input type="text" id="user" name="user" placeholder="Usuario ou email" size="27" onchange="e => setEmail(e.target.value)"></li>
-                        <li><input type="password" id="pass" name="pass" placeholder="Senha" size="27" onchange="e => setPassword(e.target.value) "></li>
-                        <li><input type="button" id="button-login" class="button" accesskey="enter" value="Logar"></li>
-                    </ul>
-                    <table>
-                        <tr>
-                            <td>
-                                <a href="">Esquece a Senha?</a>
-                            </td>
-                            <td>
-                                <a href="/cadastro">Não possui uma conta</a>
-                            </td>
-                        </tr>
-                    </table>
+                    <input type="text" class="form-i user" name="user" placeholder="Usuario ou email" size="27" onchange="e => setEmail(e.target.value)">
+                    <input type="password" class="form-i pass" name="pass" placeholder="Senha" size="27" onchange="e => setPassword(e.target.value) ">
+                    <input type="button" class="button" accesskey="enter" value="Logar">
+                    <div class="links">
+                        <div class="cadastro">
+                            <p>Não possui uma conta? <a href="/cadastro" >Cadastrar</a></p>
+                        </div>
+                        <div class="forget">
+                            <p>Esqueceu a Senha? <a href="">Recuperar</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row divider">
+                        <div class="col divisor l"></div>
+                        <p class="col prh">ou</p>
+                        <div class="col divisor r"></div>
+                    </div>
+                    <div class="box-api">
+                        <div class='api-iten'><img src="https://www.svgrepo.com/show/380993/google-logo-search-new.svg" style="max-width:22px; margin: 0px 10px 0px 10px;">Continuar com o Google</div>
+                        <!-- fazer a img e texto ficarem na mesma linha e uma div solo pra cada -->
+                        <div class='api-iten'>Continuar com o Google 2</div>
+                        <div class='api-iten'>Continuar com o Whatsapp 2</div>
+                    </div>
                 </div>
             </form>
         </div>
