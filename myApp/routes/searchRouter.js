@@ -1,3 +1,5 @@
+require('dotenv').config({ path: './keys/.env' });
+
 const express = require('express');
 const router = express.Router()
 const { MongoClient } = require('mongodb');
@@ -5,13 +7,13 @@ const { MongoClient } = require('mongodb');
 const uri = process.env['MongoUuu'];
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+console.log("Essa é a uri: "+ uri )
 
 client.connect(err => {
   if (err) {
     console.error('Erro ao conectar ao MongoDB', err);
     process.exit(1);
   }
-
   const collection = client.db("Guia-Canino").collection("dogs");
 
   router.get('/dogs', async (req, res) => {

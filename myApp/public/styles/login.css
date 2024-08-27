@@ -95,17 +95,19 @@ body {
 
 .box-api {
     margin-top: 5px;
+    justify-content: center;
 }
 
 .api-iten {
-    width: 100%;
+    width: 95%;
     height: fit-content;
-    margin: 10px 0px 0px 0px;
-    padding: 7px 0px 7px 0px;
+    margin: 2.5% 0% 0% 0%;
+    padding: 7px 2.5% 7px 2.5%;
     background-color: #FFFFFF;
     border: 1px solid black;
     border-radius: 10px;
     text-align: left;
+    align-content: baseline;
 }
 
 .api-iten:hover {
@@ -117,6 +119,9 @@ body {
     box-shadow: 0px 0px 10px rgba(100, 100, 100, 1);
 }
 
+.api-iten p {
+    margin: 2px 0px 0px 0px;
+}
 
 
 

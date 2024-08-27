@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const bodyParser = require('body-parser');
 
 //const db = require('./firebase.js');
 
@@ -15,6 +16,8 @@ const path = require("path");
 // Define a pasta onde estão os arquivos de visualização (views)
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs"); // Define o mecanismo de visualização como EJS
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // main = __dirname + "/views/mainMenu.html"
 // cadastro = __dirname + "/views/cadastro.html"
@@ -42,7 +45,7 @@ var testeRouter = require("./routes/teste");
 var searchRouter = require("./routes/searchRouter");
 var carroRouter = require("./routes/carro");
 var aboutRouter = require("./routes/about");
-//var firebaseRouter = require("./routes/firebaseRoute");
+var firebaseRouter = require("./routes/firebaseRoute");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -62,7 +65,7 @@ app.use("/teste", testeRouter);
 app.use("/carro", carroRouter);
 app.use("/about", aboutRouter);
 app.use("/api", searchRouter);
-//app.use("/fireb", firebaseRouter);
+app.use("/fireb", firebaseRouter);
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");

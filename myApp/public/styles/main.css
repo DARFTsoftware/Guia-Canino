@@ -9,7 +9,7 @@ body {
 
 .container-fluid {
   width: 100vw;
-  min-height: 100vh;
+  min-height: fit-content;
   /* Alterado para min-height */
   /*background-color: rgb(238, 238, 238);*/
   background-image: url("../login-bg.webp");
@@ -39,6 +39,10 @@ p {
 .carousel-control-next-icon {
   color: #000000;
   /* Black */
+}
+
+.content {
+  height: 200px;
 }
 
 .footer {

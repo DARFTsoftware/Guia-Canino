@@ -2,13 +2,12 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt') //isso serve pra efetuar a criptografia, nao deletar
 
+/*
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+*/
 
-router.get('/', function(req, res) {
-  res.render('cadastro')
-})
-
+/*
 //const admin = require('firebase-admin');
 
 // Inicializa o Firebase
@@ -22,7 +21,7 @@ admin.initializeApp({
 const db = admin.database();
 
 */
-
+/*
 initializeApp({
   credential: cert(serviceAccount)
 });
@@ -30,28 +29,78 @@ initializeApp({
 const db = getFirestore();
 
 console.log("DC");
+*/
+router.get('/', function(req, res) {
+  res.render('cadastro')
+})
+
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+  //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+  const { getAuth, createUserWithEmailAndPassword } = require('firebase/auth');
+
+const { getFirestore, doc, setDoc } = require('firebase/firestore');
+
+  //import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"
+  //import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"
+  //import { log } from "console";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAlJRuOMmhX7-23HqK8-4zwyBOVB2BtL8M",
+    authDomain: "aaa01-6d50e.firebaseapp.com",
+    databaseURL: "https://aaa01-6d50e-default-rtdb.firebaseio.com",
+    projectId: "aaa01-6d50e",
+    storageBucket: "aaa01-6d50e.appspot.com",
+    messagingSenderId: "112590453924",
+    appId: "1:112590453924:web:7bd30c395f9acd418ffa31",
+    measurementId: "G-MXFNG40JJJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  //const analytics = getAnalytics(app);
 
 // Rota para adicionar usuário ao Firebase
-router.post('/add', async (req, res) => {
-  console.log("ADD acessado");
+router.post('/', async (req, res) => {
   const { email, pass } = req.body;
-  const ref = await db.collection('users').doc('a');
 
-  await ref.set({
-      email: email,
-      pass: pass
-  })
-  .then(() => {
-    res.send('Usuário adicionado com sucesso!');
-    console.log("ok")
-  })
-  .catch((error) => {
-    res.send('Erro ao adicionar usuário: ' + error);
-    console.log("no")
-  });
+  try {
+    
+    const auth = getAuth();
+    const db = getFirestore();
+    console.log(email, pass);
+    
+    createUserWithEmailAndPassword(auth, email, pass).then((userCredential) => {
+      
+      const user = userCredential.user;
+        const userData = {
+          email: email,
+          password: pass
+        };
+        //alert('Cadastro realizado com sucesso!', 'sucess');
+        const docRef = doc(db, "user", user.uid);
+        setDoc(docRef, userData)/*.then(() => {
+          window.location.href = "/login";
+        })
+        .catch((error) => {
+        //console.log('Error ao escrever documento: ', error);
+        });*/
+      })
+      .catch((error) => {
+        const errorcode = error.code;
+        if(errorcode == 'auth/email-already-in-use'){
+          console.log('Email já cadastrado!');
+        } else {
+          console.log(error);
+        }
+      })
+
+  } catch (error) {
+    console.log(error);
+  }
   
 });
 
+  
 
 /*
 

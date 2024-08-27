@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-<html>
-
-
+<html lang="pt-br">
 <head>
     <title>Cadastro</title>
     <!-- Bootstrap-->
@@ -20,7 +17,7 @@
     <link rel="stylesheet" href="/styles/cadastro.css">
     <!-- Script -->
     <link rel="script" href="/scripts/cadastro.js">
-    <script type="module" scr="/services/firebaseConfig.js"></script>
+    <script type="module" scr="/scr/services/firebase.js"></script>
     
 </head>
 
@@ -28,12 +25,13 @@
         <div class="container-fluid p-0">
             <div class="box"> 
                 <h1>Sign-up</h1>
-                <form method="POST" action="/add">
+                <form method="post" action="/cadastro">
                  
                     <div class="box-itens">
-                        <input type="text" class="form-i email" id="email" name="email" placeholder="Email" size="27">
-                        <input type="password" class="form-i pass" id="pass" name="pass" placeholder="Senha" size="27">
-                        <input class="button" type="button" accesskey="enter" value="Registrar">
+                        <input type="text" class="form-i email" id="email" placeholder="Email" size="27" name="email" required>
+                        <input type="password" class="form-i pass" id="pass" placeholder="Senha" size="27" name="pass" required>
+                        <!--<input type="password" class="form-i pass" id="passconfirm" name="passconfirm" placeholder="Confirme sua senha" size="27">-->
+                        <input class="button" type="submit" accesskey="enter" value="Registrar" id="SubmitSignUp">
                     </div>
                 </form> <!-- form -->
                 <div class="login">
@@ -44,10 +42,23 @@
                     <p class="col prh">ou</p>
                     <div class="col divisor r"></div>
                 </div>
-                <div class="box-api">
-                    <div class='api-iten'>Continuar com o Google</div>
-                    <div class='api-iten'>Continuar com o Google 2</div>
-                    <div class='api-iten'>Continuar com o Whatsapp 2</div>
+                <div class="row box-api">
+                    <div class='api-iten'>
+                        <img src="https://www.svgrepo.com/show/380993/google-logo-search-new.svg" style="max-width:44px; min-width: 44px; margin: 0px 10px 0px 10px;">
+                        <!--<p>Continuar com o Google</p>--></div>
+                    <!-- fazer a img e texto ficarem na mesma linha e uma div solo pra cada -->
+                    <div class='api-iten'>
+                        <img src="https://a.travel-assets.com/egds/marks/facebook.svg" style="max-width:44px; min-width: 44px; margin: 0px 10px 0px 10px;">
+                        <!--<p>Continuar com o Google</p>-->
+                    </div>
+                    <div class='api-iten'>
+                        <img src="https://a.travel-assets.com/egds/marks/apple.svg" style="max-width:44px; min-width: 44px; margin: 0px 10px 0px 10px;">
+                        <!--<p>Continuar com o Google</p>-->
+                    </div>
+                    <div class='api-iten'>
+                        <img src="https://auth.openai.com/assets/microsoft-logo-BUXxQnXH.svg" style="max-width:44px; min-width: 44px; margin: 0px 10px 0px 10px;">
+                        <!--<p>Continuar com o Google</p>-->
+                    </div>
                 </div>
             </div> <!-- .col box -->
         </div> <!-- container-fluid -->
@@ -66,10 +77,6 @@
         </script>
           <!-- MDB -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
-        
-        <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
-        
         <script src="/scripts/cadastro.js"></script>
         
     </body>
