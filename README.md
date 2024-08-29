@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>O nosso Guia Canino vem aí!!!</h1>
+    <h1>Projeto Guia Canino</h1>
     <div>
       <h2>Visão Geral</h2>
       <p>
