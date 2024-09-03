@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcrypt') //isso serve pra efetuar a criptografia, nao deletar
+//const bcrypt = require('bcrypt') //isso serve pra efetuar a criptografia, nao deletar
 
 /*
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { initializeApp, application
+  gDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 */
 
