@@ -1,35 +1,8 @@
+// https://github.com/thatguyshwag/suspicious_website
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt') //isso serve pra efetuar a criptografia, nao deletar
 
-/*
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
-*/
-
-/*
-//const admin = require('firebase-admin');
-
-// Inicializa o Firebase
-const serviceAccount = require('../service.json');
-/*
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://auth-users-guia-canino-default-rtdb.firebaseio.com"
-});
-
-const db = admin.database();
-
-*/
-/*
-initializeApp({
-  credential: cert(serviceAccount)
-});
-
-const db = getFirestore();
-
-console.log("DC");
-*/
 router.get('/', function(req, res) {
   res.render('cadastro')
 })
@@ -56,13 +29,14 @@ const { getFirestore, doc, setDoc } = require('firebase/firestore');
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  //const analytics = getAnalytics(app);
+  // const app = initializeApp(firebaseConfig);
+  // const analytics = getAnalytics(app);
 
 // Rota para adicionar usuário ao Firebase
 router.post('/', async (req, res) => {
   const { email, pass } = req.body;
 
+  
   try {
     
     const auth = getAuth();
@@ -72,27 +46,27 @@ router.post('/', async (req, res) => {
     createUserWithEmailAndPassword(auth, email, pass).then((userCredential) => {
       
       const user = userCredential.user;
-        const userData = {
-          email: email,
-          password: pass
-        };
-        //alert('Cadastro realizado com sucesso!', 'sucess');
-        const docRef = doc(db, "user", user.uid);
-        setDoc(docRef, userData)/*.then(() => {
-          window.location.href = "/login";
-        })
-        .catch((error) => {
-        //console.log('Error ao escrever documento: ', error);
-        });*/
+      const userData = {
+        email: email,
+        password: pass
+      };
+      //alert('Cadastro realizado com sucesso!', 'sucess');
+      const docRef = doc(db, "user", user.uid);
+      setDoc(docRef, userData).then(() => {
+        res.redirect('/login');
       })
       .catch((error) => {
-        const errorcode = error.code;
-        if(errorcode == 'auth/email-already-in-use'){
-          console.log('Email já cadastrado!');
-        } else {
-          console.log(error);
-        }
-      })
+        console.log('Error ao escrever documento: ', error);
+      });
+    })
+    .catch((error) => {
+      const errorcode = error.code;
+      if(errorcode == 'auth/email-already-in-use'){
+        console.log('Email já cadastrado!');
+      } else {
+        console.log(error);
+      }
+    })
 
   } catch (error) {
     console.log(error);

@@ -41,11 +41,11 @@ var senhaRouter = require("./routes/senha");
 var soloDogRouter = require("./routes/solodog");
 var headerRouter = require("./routes/header");
 var footerRouter = require("./routes/footer");
-var testeRouter = require("./routes/teste");
 var searchRouter = require("./routes/searchRouter");
 var carroRouter = require("./routes/carro");
 var aboutRouter = require("./routes/about");
 var firebaseRouter = require("./routes/firebaseRoute");
+var testRouter = require("./routes/test");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -61,11 +61,11 @@ app.use("/senha", senhaRouter);
 app.use("/solodog", soloDogRouter);
 app.use("/header", headerRouter);
 app.use("/footer", footerRouter);
-app.use("/teste", testeRouter);
 app.use("/carro", carroRouter);
 app.use("/about", aboutRouter);
 app.use("/api", searchRouter);
 app.use("/fireb", firebaseRouter);
+app.use("/test", testRouter)
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");

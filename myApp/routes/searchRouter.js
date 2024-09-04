@@ -27,6 +27,17 @@ client.connect(err => {
     }
   });
 
+  router.get('/dogs/tam/:t', async (req, res) => {
+    try {
+      collection.find({ tamanho : t}).toArray((err, docs) => {
+        if (err) throw err;
+        res.json(docs);
+      });
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+  
   router.get('/dogs/six/:userInput', async (req, res) => {
     /*
       const query = req.query.q;
@@ -49,7 +60,6 @@ client.connect(err => {
         if (err) throw err;
         res.json(docs);
       });
-      
     } catch (err) {
       res.status(500).send(err);
     }

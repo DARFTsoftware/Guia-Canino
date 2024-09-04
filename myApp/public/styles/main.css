@@ -45,6 +45,7 @@ p {
   height: 200px;
 }
 
+/*
 .footer {
   margin-top: 50px;
   width: 100%;
@@ -52,23 +53,5 @@ p {
   color: #fff;
   padding: 40px 0;
   flex-shrink: 0;
-  /* Adicionado */
 }
-
-.footer-title {
-  color: #fff;
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-list li {
-  margin-bottom: 10px;
-}
-
-.footer-list li a {
-  color: #fff;
-  text-decoration: none;
-}
+*/
