@@ -4,8 +4,8 @@
     <div>
       <h2>Visão Geral</h2>
       <p>
-        O site Guia Canino tem como objetivo ajudar as pessoas a adquirirem seus pets fornecendo dicas e informações relevantes para a melhor escolha do seu animalzinho. Se você já pensou em adotar um cão, mas não sabe por onde começar, o nosso site pode te ajudar!
-      </p>
+        O site Guia Canino tem como objetivo ajudar as pessoas a adquirirem seus pets fornecendo dicas e informações relevantes para a melhor escolha do seu animalzinho.</p> 
+      <h3>Se você já pensou em adotar um cão, mas não sabe por onde começar, o nosso site pode te ajudar!</h3>
       <p>
         Funções: Comparar animais e suas raças para ver o seu custo de habitação: O quão caro em geral é a ração do animal? O quanto custa pra mantê-lo saudável? Se ficar doente, custa muito para levar ao veterinário? Além disso, ao nos fornecer algumas informações por meio de um cadastro de usuário(opcional), você pode personalizar sua experiência, incluindo: cães compatíveis com seu clima, moradia, renda e muito mais.
       </p>
