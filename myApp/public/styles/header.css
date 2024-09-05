@@ -97,6 +97,20 @@ body {
 }
 
 
+#entrarButton {
+  background-color: rgb(100, 145, 70);
+}
 
+#perfilButton {
+  background-color: rgb(49, 49, 41);
+}
 
+#sairButton {
+  background-color: rgb(145, 70, 70);
+  color:white
+}
 
+#headerButtons {
+  position:relative;
+    
+}
