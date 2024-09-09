@@ -45,8 +45,10 @@ body {
 }
 
 #card #x {
+  max-width: fit-content;
   max-height: 15px;
   padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 90%;
   z-index: 1;
 }
 

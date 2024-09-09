@@ -49,49 +49,50 @@ Trello Cousas
         </div>
         <div class="box">
             <img src="/image/LogarTrans.webp" width="130" id="logo">
-            <form method="post" action="">
+            <form method="post" action="/login/" class="fLogin">
                 <!-- <div id="signInMessage" class="messageDiv" style="display:nome;"></div> -->
                 <div class="box-itens">
-                    <input type="text" class="form-i user" name="user" placeholder="Usuario ou email" size="27" onchange="e => setEmail(e.target.value)">
-                    <input type="password" class="form-i pass" name="pass" placeholder="Senha" size="27" onchange="e => setPassword(e.target.value) ">
+                    <input type="text" class="form-i user" name="email" placeholder="Usuario ou email" size="27">
+                    <input type="password" class="form-i pass" name="pass" placeholder="Senha" size="27">
                     <input type="button" class="button" accesskey="enter" value="Logar">
-                    <div class="links">
-                        <div class="cadastro">
-                            <p>Não possui uma conta? <a href="/cadastro" >Cadastre-se!</a></p>
-                        </div>
-                        <div class="forget">
-                            <p>Esqueceu a Senha? <a href="">Recuperar</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row divider">
-                        <div class="col divisor l"></div>
-                        <p class="col prh">ou</p>
-                        <div class="col divisor r"></div>
-                    </div>
-                    <div class="box-api">
-                        <div class='row api-iten'>
-                            <img src="https://www.svgrepo.com/show/380993/google-logo-search-new.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                            <p>Continuar com o Google</p>
-                        </div>
-                        <!-- fazer a img e texto ficarem na mesma linha e uma div solo pra cada -->
-                        <div class='row api-iten'>
-                            <img src="https://a.travel-assets.com/egds/marks/facebook.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                            <p>Continuar com o Facebook</p>
-                        </div>
-                        <div class='row api-iten'>
-                            <img src="https://a.travel-assets.com/egds/marks/apple.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                            <p>Continuar com a Apple</p>
-                        </div>
-                        <div class='row api-iten'>
-                            <img src="https://auth.openai.com/assets/microsoft-logo-BUXxQnXH.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                            <p>Continuar com a Microsoft</p>
-                        </div>
-                    </div>
                 </div>
             </form>
+            <div class="links">
+                <div class="cadastro">
+                    <p>Não possui uma conta? <a href="/cadastro" >Cadastre-se!</a></p>
+                </div>
+                <div class="forget">
+                    <p>Esqueceu a Senha? <a href="">Recuperar</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row divider">
+                <div class="col divisor l"></div>
+                <p class="col prh">ou</p>
+                <div class="col divisor r"></div>
+            </div>
+            <div class="box-api">
+                <div class='row api-iten'>
+                    <img src="https://www.svgrepo.com/show/380993/google-logo-search-new.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
+                    <p>Continuar com o Google</p>
+                </div>
+                <!-- fazer a img e texto ficarem na mesma linha e uma div solo pra cada -->
+                <div class='row api-iten'>
+                    <img src="https://a.travel-assets.com/egds/marks/facebook.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
+                    <p>Continuar com o Facebook</p>
+                </div>
+                <div class='row api-iten'>
+                    <img src="https://a.travel-assets.com/egds/marks/apple.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
+                    <p>Continuar com a Apple</p>
+                </div>
+                <div class='row api-iten'>
+                    <img src="https://auth.openai.com/assets/microsoft-logo-BUXxQnXH.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
+                    <p>Continuar com a Microsoft</p>
+                </div>
+            </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -102,7 +103,7 @@ Trello Cousas
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
         <script src="/scripts/login.js"></script>
-        <script src="/scripts/firebaseConfig.js"></script>
+        <!---<script src="/scripts/firebaseConfig.js"></script>--->
 </body>
 
 </html>

@@ -37,7 +37,7 @@ router.get('/', function(req, res) {
 
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
   //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-  const { getAuth, createUserWithEmailAndPassword } = require('firebase/auth');
+const { getAuth, createUserWithEmailAndPassword } = require('firebase/auth');
 
 const { getFirestore, doc, setDoc } = require('firebase/firestore');
 
