@@ -49,10 +49,18 @@ Trello Cousas
         </div>
         <div class="box">
             <img src="/image/LogarTrans.webp" width="130" id="logo">
-            <form method="post" action="/login/" class="fLogin">
+            <form method="post" action="/login" class="fLogin">
                 <!-- <div id="signInMessage" class="messageDiv" style="display:nome;"></div> -->
                 <div class="box-itens">
-                    <input type="text" class="form-i user" name="email" placeholder="Usuario ou email" size="27">
+                    <div class="row label-u">
+                        <p>Email</p>
+                        <small id="emailHelp" class="form-text user-l"> *</small>
+                    </div>
+                    <input type="text" class="form-i user" name="email" placeholder="Email ou Usuário" size="27">
+                    <div class="row label-p">
+                        <p>Senha </p>
+                        <small id="emailHelp" class="form-text pass-l"> *</small>
+                    </div>
                     <input type="password" class="form-i pass" name="pass" placeholder="Senha" size="27">
                     <input type="button" class="button" accesskey="enter" value="Logar">
                 </div>

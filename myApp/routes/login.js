@@ -1,27 +1,52 @@
 const express = require('express')
 const router = express.Router()
 
+//const firebase = require('firebase/app');
+//const { initializeApp, applicationDefault, cert } = require('firebase/app');
+require('firebase/firestore');
+const { getFirestore, doc, getDoc, collection, query, where, getDocs } = require('firebase/firestore');
+const { getAuth, signInWithEmailAndPassword } = require("firebase/auth")
+
 router.get('/', function(req, res, next) {
   res.render('login')
 })
 
-//const { initializeApp } = require("firebase-admin/app");
-const firebase = require('firebase/app');
-require('firebase/firestore');
+router.post('/', async (req, res) => {
+  const { email, pass } = req.body;
+  const auth = getAuth();
+  try {
+    signInWithEmailAndPassword(auth, email, pass)
+      .then((userCredential) => {
+        
+        console.log('Login realizado com sucesso!');
+        
+        const user = userCredential.user;
+        
+        /* Usando localStorage */
+        const userID = user.uid;
+        if (typeof localStorage === "undefined" || localStorage === null) {
+          var LocalStorage = require('node-localstorage').LocalStorage;
+          localStorage = new LocalStorage('./scratch');
+          console.log()
+        }
+        localStorage.setItem('myFirstKey', 'myFirstValue');
+        console.log(localStorage.getItem('myFirstKey'));
+        localStorage.setItem('userID', userID);
+        console.log('ID do usuário:', userID);
 
-const { initializeApp, applicationDefault, cert } = require('firebase/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase/firestore');
-const { doc, getDoc, collection, query, where, getDocs } = require('firebase/firestore');
+        //res.json({ userID });
+        
+        //res.redirect("/perfil")
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  } catch(error) {
+    console.log("error in post(/login) → " + error)
+  }
+});
 
-
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-const { getAuth, signInWithEmailAndPassword } = require("firebase/auth")
-
-const appp = require("../routes/cadastro")
-
-//const app = initializeApp(firebaseConfig);
-
-router.get('/getUser/:email', async (req, res) => {
+router.get('/getU/:email', async (req, res) => {
 
   try {
     
@@ -31,19 +56,14 @@ router.get('/getUser/:email', async (req, res) => {
     const q = query(collection(db, "user"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
 
-    const a = false;
-    querySnapshot.forEach((doc) => {
-      a == true
-      return res.json(doc.data());  
-    });
-
-    if(!a) {
+    if (querySnapshot.empty){
       return res.json("User not found");
     }
+    querySnapshot.forEach((doc) => {
+      res.json(doc.data().email);  
+    });
     
-   
     // TESTE DE GET DATA
-    
     /*
     // get data whit the doc name
     const docRef = doc(db, "user", "1IDW8k38MSSngKqY9FFUIetoBoD3");
@@ -56,7 +76,6 @@ router.get('/getUser/:email', async (req, res) => {
       console.log("No such document!");
     }
     */
-
     /*
     // Get all data from the "users" collection
     const querySnapshot = await getDocs(collection(db, "user"));
@@ -73,138 +92,28 @@ router.get('/getUser/:email', async (req, res) => {
   
 })
 
-router.post('/get', async (req, res) => {
-  const { email, pass } = req.body;
-  
-  const auth = getAuth();
-  const firestore = getFirestore()
-
-  console.log("email :"+ email + " && pass:" +  pass);
-
-  // Bloco 01
-  try {
-    /*
-    // get a req element in the docs of the collection
-    const userRef = firestore.collection('user');
-    const snapshot = await userRef.where('email', '==', email).get();
-    
-    if (snapshot.empty) {
-      console.log('No matching documents.');
-      return;
-    } 
-    */ 
-
-    /*
-    snapshot.forEach(doc => {
-      console.log(doc.id, '=>', doc.data());
-    });
-    */
-
-    
-    // get the entire collection
-    const userRef = firestore.collection('user');
-    const snapshot = await userRef.get();
-    snapshot.forEach(doc => {
-      console.log(doc.id, '=>', doc.data());
-    });
-    
-  } catch(error) {
-    console.log("catched error " + error)
-  }
-
-  // Bloco 02
-  /*
-  signInWithEmailAndPassword(auth, email, pass)
-    .then((userCredential) => { 
-      console.log('Login realizado com sucesso!');
-      const user = userCredential.user;
-      console.log("user: " + user)
-      res.redirect("/perfil")
-  })
-  .catch((error) => {
-    console.log(error);
-    const errorcode = error.code;
-    if(errorcode==='auth/invalid-credential') {
-      console.log("Email ou senha inválidos");
-    }
-    else {
-      console.log('Erro ao fazer login error:' + error);
-      console.log('Erro ao fazer login errorcode:' + errorcode);
-    }
-  })
-    */
-
-  /*
-  signInWithEmailAndPassword(auth, email, pass)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
-    */
-})
-
-router.post('/', async (req, res) => {
-  const { email, pass } = req.body;
-
-  const auth = getAuth();
-  const firestore = getFirestore();
+router.get('/getP/:email/:pass', async (req, res) => {
 
   try {
+    const email = req.params.email;
+    const pass = req.params.pass;
     const db = getFirestore();
     // get a doc with a query
     const q = query(collection(db, "user"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
-
+    
     querySnapshot.forEach((doc) => {
-      res.json(doc.data());
-    });
-
-    const a = false;
-
-    querySnapshot.forEach((doc) => {
-      if(doc.exists) {
-        a == true
-        return res.json(doc.data());  
-      } 
-    });
-
-    if(a == false) {
-      return res.json("User not found");
-    }
-
-    console.log("email :"+ email + " && pass:" +  pass);
-
-    signInWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => { 
-        console.log('Login realizado com sucesso!');
-        //const user = userCredential.user;
-        res.redirect("/perfil")
-    })
-    .catch((error) => {
-      console.log(error);
-      const errorcode = error.code;
-      if(errorcode==='auth/invalid-credential') {
-        firer.errorr(".wrong-pass","Email ou senha inválidos");
+      if (doc.data().password == pass) {
+        return res.json("Senha correta");
       }
-      else {
-        console.log('Erro ao fazer login ' + error);
-        console.log('Erro ao fazer login ' + errorcode);
-      }
-    })
-
+      res.json("Senha incorreta");
+    });
     
   } catch(error) {
-    console.log("catched error → " + error)
+    console.log("catched error :" + error)
   }
 
-  
-});
+})
 
 module.exports = router;
 

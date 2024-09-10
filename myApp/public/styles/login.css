@@ -31,7 +31,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     margin: 0px 0px 0px 0px;
     padding: 20px 30px 15px 30px;
     align-items: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .form-i {
-    margin: 10px 0px 0px 0px;
+    margin: 4px 0px 0px 0px;
     padding: 2px 0px 2px 12px;
     border-radius: 20px;
 }
@@ -50,8 +50,27 @@ body {
     background-color: #bdbdbd;
 }
 
-.user {
-    margin: 45px 0px 0px 0px;
+.label-u {
+    text-align: left;
+    margin: 45px 0px -20px 30px !important; /* important pra passar por cima do css do bootstrap kappa */
+}
+
+.err {
+    color: red !important;
+}
+.user-l {
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+
+.label-p {
+    text-align: left;
+    margin: 8px 0px -20px 30px !important; 
+}
+
+.pass-l {
+    margin: 0px 0xp 0x 5px;
+    margin-bottom: 2px;
 }
 
 .button {

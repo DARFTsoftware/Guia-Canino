@@ -1,39 +1,67 @@
 
-console.log("AAAA")
+document.querySelector(".button").addEventListener("click", () => {
+  checkUserExists()
+})
+
 function checkUserExists() {
-  // searchN é o parametro passado na url
   const checkU = document.querySelector(".user").value
-  //const checkP = params.get("pass");
-
-  console.log("A")
-
-  fetch(`/login/getUser/${checkU}`)
+  
+  fetch(`/login/getU/${checkU}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error("User não encontrado");
+        return false
       }
       return response.json();
     })
     .then((data) => {
-      console.log(data)
-      return true
+      if (data == "User not found"){
+        // Fazer algo aqui para denotar que o usuário não existe
+        const userErr = document.querySelector(".user-l")
+        userErr.innerText = " - Usuário não encontrado"
+        document.querySelector(".label-u").classList.add("err");
+        const passErr = document.querySelector(".pass-l")
+        passErr.innerText = " - *"
+        document.querySelector(".label-p").classList.add("err");
+        document.querySelector(".text-muted").style = "color: red !important;"
+        return false
+      }
+      // se o user existe checar se a senha está correta
+      checkPass(data) // → passando o email digitado como parâmetro para checar a senha desse mesmo email
     })
     .catch((error) => {
-      //displayError(error.message);
+      console.log(error)
       return false
     });
-  
 }
 
-document.querySelector(".button").addEventListener("click", () => {
-  checkUserExists();
-})
-                                          
-document.querySelector(".flogin").addEventListener("submit", (event) => {
-  const check = checkUserExists()
+function checkPass(user) {
+  const checkP = document.querySelector(".pass").value
 
-  if (check){
-    return console.log("User exists");
-  }
-  console.log("a");
-});
+  fetch(`/login/getP/${user}/${checkP}`)
+    .then((response) => {
+      if (!response.ok) {
+        return false
+      }
+      console.log(response.json());
+    })
+    .then((data) => {
+      if (data != "Senha correta"){
+        const userErr = document.querySelector(".user-l")
+        userErr.innerText = " - Usuário ou senha incorretos"
+        document.querySelector(".label-u").classList.add("err");
+        const passErr = document.querySelector(".pass-l")
+        passErr.innerText = " - Usuário ou senha incorretos"
+        document.querySelector(".label-p").classList.add("err");
+        document.querySelectorAll(".text-muted").style = "color: red !important;"
+        return false
+      }
+      // User altorizado então → submit form
+      document.querySelector('.fLogin').submit();
+    })
+    .catch((error) => {
+      console.log(error);
+      return false
+    });
+}
+
+                                         

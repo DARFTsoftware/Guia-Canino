@@ -6,11 +6,23 @@ body {
     overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
   }
 
+  .field {
+      display: flex;
+      align-items: center; /* Alinha verticalmente o texto e o input */
+      margin-bottom: 10px; /* Espaçamento entre as linhas */
+  }
+
+  .field input {
+     margin-left: 10px; /* Espaçamento entre o texto e o input */
+     padding: 5px; /* Adiciona um pouco de padding para melhor visualização */
+  }
+  /*input {
+    float: left;
+  }*/
   .container-fluid {
     width: 100vw;
     min-height: 100vh;
     /* Alterado para min-height */
-    background-color: rgb(238, 238, 238);
     background-image: url("../login-bg.webp");
     background-size: cover;
     background-position: top;
@@ -18,6 +30,12 @@ body {
     /* Adicionado */
   }
 
+  .conteudo {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: fit-content; /* Garante que o contêiner ocupe toda a altura da viewport */
+  }
   .header {
     position: sticky;
     top: 0px;
@@ -58,6 +76,13 @@ body {
     margin-right: auto;
 }
 
+.img {
+    /*max-width: 55%;
+    height: auto;
+    margin-left: 100px;
+    margin-top: -26px;*/
+    object-fit: contain;
+  }
 #site-name img {
     max-width: 55%;
     height: auto;
@@ -129,18 +154,33 @@ body {
 }
 
 .perfil {
+    width: 80%;
     background-color: rgba(240, 240, 240, 0.47); /* Cor de fundo com transparência */
     padding: 20px;
-    border-left: 10px solid #007bff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
 }
 
-.perfil_importante img {
+.perfil_foto .fotor{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: url(https://www.sindpass.com.br/v.01/components/assets/img/login_avatar.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+}
+.perfil_importante {
+    display: flex;
+    flex-direction: column;
     width: 100px;
     height: auto;
     margin-bottom: 10px;
+    border-radius: 25px;
+    border: 2px;
 }
 
 .informacao_adicional {

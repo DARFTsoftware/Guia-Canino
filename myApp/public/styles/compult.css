@@ -9,14 +9,21 @@ body {
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.2) /*def:73,73,73 */ !important;
   overflow-x: auto;
-}
+} 
 
+.container-fluid.p-0 {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: fit-content; /* Garante que o contêiner ocupe toda a altura da viewport */
+}
 /* content */
 
 #main-content {
   margin-top: 100px;
   height: fit-content;
   width: fit-content;
+  box-shadow: 0px 0px 10px black; /*Relevo Sombreado*/
 }
 
 /*
