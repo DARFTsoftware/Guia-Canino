@@ -42,33 +42,41 @@ p {
 }
 
 .content {
-  height: 200px;
+  height: fit-content;
 }
 
-.footer {
-  margin-top: 50px;
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  padding: 40px 0;
-  flex-shrink: 0;
-  /* Adicionado */
+.sideRow {
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
 }
 
-.footer-title {
-  color: #fff;
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-list li {
-  margin-bottom: 10px;
-}
-
-.footer-list li a {
-  color: #fff;
+/*
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
   text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+*/
+.card {
+  width: 170px;
+  background-color: gray;
+  margin: 10px 0px 5px 10px;
+  padding: 10px 40px 10px 10px ;
+  text-align: center;
+}
+
+.card-name {
+  width: 80px;
+}
+
+.card-img {
+  width: 80px;
+  border-radius: 12px;
 }

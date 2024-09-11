@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
         //res.json({ userID });
         
-        //res.redirect("/perfil")
+        res.redirect("/perfil")
       })
       .catch((error) => {
         console.log(error);

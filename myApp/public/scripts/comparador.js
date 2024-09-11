@@ -230,25 +230,34 @@ function createColl(dog) {
   p.addEventListener("click" , () => {
     coll.remove()
     console.log(coll.id + " foi removido");
-    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 4) {
-      document.getElementById("coll-2").id = "coll-1";
-      document.getElementById("coll-3").id = "coll-2";
-    }
-    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 4) {
-      document.getElementById("coll-3").id = "coll-2";
-    }
-    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 3) {
-      document.getElementById("coll-2").id = "coll-1";
-    }
     if(coll.id == "coll-1" && document.querySelector(".roww").children.length == 2){
       /**
       * Retorna para o mainMenu quando (ou tela compara meio searchBarComp do ComparaCelular)
       */
+      changeOranjeWidth(".oranje", "200px");
       console.log("Base")
       setAlign()
       //document.querySelectorAll('#coll-topics p').style.padding = "50px 10px 20px 30px";
     }
-    
+    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 3) {
+      document.getElementById("coll-2").id = "coll-1";
+      changeOranjeWidth(".oranje", "404px");
+    }
+    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 4) {
+      document.getElementById("coll-2").id = "coll-1";
+      document.getElementById("coll-3").id = "coll-2";
+      changeOranjeWidth(".oranje", "616px");
+    }
+    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 3) {
+      changeOranjeWidth(".oranje", "404px");
+    }
+    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 4) {
+      document.getElementById("coll-3").id = "coll-2";
+      changeOranjeWidth(".oranje", "616px");
+    }
+    if (coll.id == "coll-3" && document.querySelector(".roww").children.length == 4) {
+      changeOranjeWidth(".oranje", "616px");
+    }
   })
 
   const imgCard = document.createElement("div");
@@ -458,21 +467,25 @@ function rowAlign(block, rowww) {
   function checkColls() {
     if(coll1 != null && coll2 != null && coll3 != null && coll4 != null) {
       check = Math.max(row1, row2, row3, row4);
+      changeOranjeWidth(".oranje", "824px");
       console.log("check4 : " + check)
     } 
     else if(coll1 != null && coll2 != null && coll3 != null && coll4 == null) {
       check = Math.max(row1, row2, row3);
+      changeOranjeWidth(".oranje", "616px");
       console.log("check3 : " + check);
     }
     else if(coll1 != null && coll2 != null && coll3 == null && coll4 == null) {
       check = Math.max(row1, row2);
+      changeOranjeWidth(".oranje", "408px");
       console.log("check2 : " + check);
     } 
     else if(coll1 != null && coll2 == null && coll3 == null && coll4 == null) {
       check = row1;
+      changeOranjeWidth(".oranje", "200px");
       console.log("check1 : " + check);
     }
-      
+
     
   }
 
@@ -517,8 +530,13 @@ function rowAlign(block, rowww) {
   }
 }
 
-
-
+function changeOranjeWidth(className, width) {
+    var elems = document.querySelectorAll(className);
+    var index = 0, length = elems.length;
+    for ( ; index < length; index++) {
+        elems[index].style.width = width;
+    }
+}
 
 function displayError(message) {
 

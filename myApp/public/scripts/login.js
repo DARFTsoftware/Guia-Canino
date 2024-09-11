@@ -42,9 +42,10 @@ function checkPass(user) {
       if (!response.ok) {
         return false
       }
-      console.log(response.json());
+      return response.json();
     })
     .then((data) => {
+      console.log(data)
       if (data != "Senha correta"){
         const userErr = document.querySelector(".user-l")
         userErr.innerText = " - Usuário ou senha incorretos"

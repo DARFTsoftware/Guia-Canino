@@ -27,10 +27,11 @@ client.connect(err => {
     }
   });
 
-  router.get('/dogs/tam/:t', async (req, res) => {
+  router.get('/dogs/query/:field/:value', async (req, res) => {
     try {
-      const tInput = req.params.t;
-      collection.find( { tamanho : tInput } ).toArray((err, docs) => {
+      const field = req.params.field;
+      const value = req.params.value;
+      collection.find( { [field] : value } ).toArray((err, docs) => {
         if (err) throw err;
         res.json(docs);
       });
