@@ -1,4 +1,6 @@
+
 //const { set } = require("mongoose");
+var blocksArr = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   // params são os parametros da url
@@ -19,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((dog) => {
         createColl(dog);
         setAlign()
-        rowAlignInfinity()
       })
       .catch((error) => {
         displayError(error.message);
@@ -37,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((dog2) => {
         createColl(dog2);
         setAlign()
-        rowAlignInfinity()
-        
       })
       .catch((error) => {
         displayError(error.message);
@@ -89,7 +88,7 @@ inp.addEventListener("input", (e) => {
         const li = document.createElement("li");
 
         li.onclick = () => {
-          displayDogInfo(dog);
+          window.location.href = `/compara?dog=${dog.name}`;
         };
 
         li.textContent = dog.nome;
@@ -151,8 +150,7 @@ comp.addEventListener("input", (e) => {
           console.log(dog.name + "adicionado")
           createColl(dog)
           setAlign();
-          setAlign();
-          //window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;;
+          //window.location.href = `/compara?dog=${searchDog}&compara=${searchCompara}`;
         };
 
         li.textContent = dog.nome;
@@ -187,21 +185,14 @@ function createColl(dog) {
   element.classList.add("my-class");
   element.id = "my-id";
   */
-  let rowMain = document.querySelector(".roww");
+  let rowMain = document.querySelector(".roww"); // → a div que contem todas as colunas com as informações de cachoros
 
-  // Checkar as colunas vazias
+  // Checkar as colunas vazias anexar o id para uma nova coluna
   let collumm;
-  if (document.querySelector("#coll-1") == null) {
-    collumm = 1
-  } 
-  else if (document.querySelector("#coll-2") == null) {
-    collumm = 2
-  }
-  else if (document.querySelector("#coll-3") == null) {
-    collumm = 3
-  }
-  else if (document.querySelector("#coll-4") == null) {
-    collumm = 4
+  for (let i = 0; i < rowMain.children.length; i++){
+    if (document.querySelector("#coll-" + i) == null){
+      collumm = i
+    }
   }
 
   // Criando a div que vai ter tudo 
@@ -230,34 +221,14 @@ function createColl(dog) {
   p.addEventListener("click" , () => {
     coll.remove()
     console.log(coll.id + " foi removido");
-    if(coll.id == "coll-1" && document.querySelector(".roww").children.length == 2){
-      /**
-      * Retorna para o mainMenu quando (ou tela compara meio searchBarComp do ComparaCelular)
-      */
-      changeOranjeWidth(".oranje", "200px");
-      console.log("Base")
-      setAlign()
-      //document.querySelectorAll('#coll-topics p').style.padding = "50px 10px 20px 30px";
+    // i começa em 1 para não modificar a primeira coll (coll-topics)
+    // o loop vai ate children.length - 1 para não modificar a ultima coll (coll-search)
+    for (let i = 1; i < rowMain.children.length - 1; i++) {
+      rowMain.children[i].id = "coll-" + i;
     }
-    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 3) {
-      document.getElementById("coll-2").id = "coll-1";
-      changeOranjeWidth(".oranje", "404px");
-    }
-    if (coll.id == "coll-1" && document.querySelector(".roww").children.length == 4) {
-      document.getElementById("coll-2").id = "coll-1";
-      document.getElementById("coll-3").id = "coll-2";
-      changeOranjeWidth(".oranje", "616px");
-    }
-    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 3) {
-      changeOranjeWidth(".oranje", "404px");
-    }
-    if (coll.id == "coll-2" && document.querySelector(".roww").children.length == 4) {
-      document.getElementById("coll-3").id = "coll-2";
-      changeOranjeWidth(".oranje", "616px");
-    }
-    if (coll.id == "coll-3" && document.querySelector(".roww").children.length == 4) {
-      changeOranjeWidth(".oranje", "616px");
-    }
+    setAlign()
+    changeOranjeWidth(".oranje", (200*(rowMain.children.length - 1)+4*(rowMain.children.length - 1))  + "px");
+    
   })
 
   const imgCard = document.createElement("div");
@@ -280,7 +251,7 @@ function createColl(dog) {
   // Div do conteudo sobre o dog
   // Primero bloco
   const oranje1 = document.createElement("div");
-  oranje1.classList.add("no-oranje");
+  oranje1.classList.add("no-oranje-one");
   cell.appendChild(oranje1);
   
   const inf = document.createElement("div");
@@ -374,9 +345,7 @@ function createColl(dog) {
     const pgraph = document.createElement("p");
     pgraph.innerHTML = content;
     roww.appendChild(pgraph);
-
   }
-  
 }
 
 function setAlign() {
@@ -395,40 +364,41 @@ function setAlign() {
   for (let i = 0; i <= 2; i++) {
     rowAlign(5, i);
   }
+
+  if(document.querySelector(".roww").children.length == 7) {
+    document.querySelector("#coll-search").style.display = "none";
+  } else {
+    document.querySelector("#coll-search").style.display = "inline";
+  } 
+  
 }
 
 // Função para alinhar o tamanhos das linhas de infos
 // block = o bloco que vai ser checkado
 // rowww = a linha que vai ser checkada
-function rowAlignInfinity() {
-  let collNumber = document.querySelector(".roww").children.length
-  let infosNumber = collNumber - 2
+function imgAlign() {
 
-  let colls = []
-
-  colls[0] = document.querySelector(".roww #coll-topics")
-
-  for (let i = 1; i <= infosNumber; i++) {
-    colls.push(document.querySelector(".roww #coll-" + i));
-  };
-
-  console.log(colls);
-
-  /*
-
-  for (let i = 0; i < colls.length; i++) {
-    rows.push(document.querySelector(".roww").children[i].children[1].children);
-  }
-
-  console.log("A")
-  console.log(rows);
-  */
+  let card1 = document.querySelector("#coll-1 ");
 }
 
 function rowAlign(block, rowww) {
   //let b = document.querySelector("#topics5").children[2].offsetHeight
 
   //console.log("Bloco :" + block + " na linha :" + rowww)
+  /*
+  var clockArr = [];
+  let collPos;
+  
+  collPos = document.querySelector("#coll-topics #topics" + block)
+  console.log("collPos → " + document.querySelector("#coll-topics #topics" + block));
+  blocksArr.push(document.querySelector("#coll-topics #topics" + block))
+
+  collPos = document.querySelector("#coll-1 #infos" + block);  
+  blocksArr.push(document.querySelector("#coll-1 #infos" + block))
+  console.log("collPos → " + document.querySelector("#coll-1 #infos" + block));
+
+  console.log(blocksArr);
+  */
 
   let coll1 = document.querySelector("#coll-topics #topics" + block);
   //console.log(coll1);
@@ -438,6 +408,19 @@ function rowAlign(block, rowww) {
   //console.log(coll3);
   let coll4 = document.querySelector("#coll-3 #infos" + block);
   //console.log(coll4);
+  let coll5 = document.querySelector("#coll-4 #infos" + block);
+  let coll6 = document.querySelector("#coll-5 #infos" + block);
+
+  /*
+  let rowArr = [];
+  let rowPos;
+
+  for (let i = 0; i < blocksArr.length; i++){
+    rowPos = blocksArr[i].children[rowww].children;
+    rowArr.push(rowPos)
+  }*/
+
+  let rowsH = [];
   
   let row1;
   if(coll1 != null) {
@@ -446,7 +429,14 @@ function rowAlign(block, rowww) {
     }
     row1 = coll1.children[rowww].children[0].offsetHeight;
   }
-  let row2 
+  /*
+  for (let i = 0; i < document.querySelector(".roww").children.length - 1; i++){
+    console.log("Bloco :" + block + " na linha :" + rowww);
+
+    console.log(document.querySelector("#coll-" + i + "#infos" + block).children[rowww].children[0].offsetHeight)
+  }*/
+
+  let row2;
   if(coll2 != null) {
     row2  = coll2.children[rowww].children[0].offsetHeight;
   }
@@ -458,40 +448,51 @@ function rowAlign(block, rowww) {
   if(coll4 != null) {
     row4 = coll4.children[rowww].children[0].offsetHeight;
   }
+  let row5;
+  if(coll5 != null) {
+    row5 = coll5.children[rowww].children[0].offsetHeight;
+  }
+  let row6;
+  if(coll6 != null) {
+    row6 = coll6.children[rowww].children[0].offsetHeight;
+  }
   
-  
-  //console.log("ROWS_F")
-
   let check; 
   
   function checkColls() {
-    if(coll1 != null && coll2 != null && coll3 != null && coll4 != null) {
+    if(coll1 != null && coll2 != null && coll3 != null && coll4 != null && coll5 != null && coll6 != null) {
+      check = Math.max(row1, row2, row3, row4, row5, row6);
+      changeOranjeWidth(".oranje", "1240px");
+      console.log("check6 : " + check)
+    } 
+    else if(coll1 != null && coll2 != null && coll3 != null && coll4 != null && coll5 != null && coll6 == null) {
+      check = Math.max(row1, row2, row3, row4, row5);
+      changeOranjeWidth(".oranje", "1032px");
+      console.log("check5 : " + check)
+    } 
+    else if(coll1 != null && coll2 != null && coll3 != null && coll4 != null && coll5 == null && coll6 == null) {
       check = Math.max(row1, row2, row3, row4);
       changeOranjeWidth(".oranje", "824px");
       console.log("check4 : " + check)
     } 
-    else if(coll1 != null && coll2 != null && coll3 != null && coll4 == null) {
+    else if(coll1 != null && coll2 != null && coll3 != null && coll4 == null && coll5 == null && coll6 == null) {
       check = Math.max(row1, row2, row3);
       changeOranjeWidth(".oranje", "616px");
       console.log("check3 : " + check);
     }
-    else if(coll1 != null && coll2 != null && coll3 == null && coll4 == null) {
+    else if(coll1 != null && coll2 != null && coll3 == null && coll4 == null && coll5 == null && coll6 == null) {
       check = Math.max(row1, row2);
       changeOranjeWidth(".oranje", "408px");
       console.log("check2 : " + check);
     } 
-    else if(coll1 != null && coll2 == null && coll3 == null && coll4 == null) {
+    else if(coll1 != null && coll2 == null && coll3 == null && coll4 == null && coll5 == null && coll6 == null) {
       check = row1;
       changeOranjeWidth(".oranje", "200px");
       console.log("check1 : " + check);
     }
-
-    
   }
 
   checkColls();
-  //console.log("Check :" + check);
-
   if (coll1 != null) {
     if(row1 != check) {
       coll1.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
@@ -528,6 +529,26 @@ function rowAlign(block, rowww) {
       console.log("diff : " + diff);
     }
   }
+  if (coll5 != null) {
+    if(row5 != check) {
+      coll5.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row5 = coll5.children[rowww].children[0].offsetHeight;
+      let diff = (check - row5) / 2 + 2;
+      coll5.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+  if (coll6 != null) {
+    if(row6 != check) {
+      coll6.children[rowww].children[0].style = "padding: 2px 0px 2px 10px";
+      row6 = coll6.children[rowww].children[0].offsetHeight;
+      let diff = (check - row6) / 2 + 2;
+      coll6.children[rowww].children[0].style = "padding: " + diff + "px 0px " + diff +"px 10px";
+      console.log("diff : " + diff);
+    }
+  }
+
+  
 }
 
 function changeOranjeWidth(className, width) {

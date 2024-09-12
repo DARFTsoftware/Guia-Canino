@@ -4,91 +4,43 @@ body {
     box-sizing: border-box;
     max-width: 100vw; /* Define a largura máxima como o tamanho da viewport */
     overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
-  }
+}
 
-  .field {
-      display: flex;
-      align-items: center; /* Alinha verticalmente o texto e o input */
-      margin-bottom: 10px; /* Espaçamento entre as linhas */
-  }
+.fotor {
+    display: table;
+    text-decoration: none;
+}
 
-  .field input {
-     margin-left: 10px; /* Espaçamento entre o texto e o input */
-     padding: 5px; /* Adiciona um pouco de padding para melhor visualização */
-  }
-  /*input {
-    float: left;
-  }*/
-  .container-fluid {
+.field {
+    display: table-row;
+    align-items: center; /* Alinha verticalmente o texto e o input */
+    margin-bottom: 10px; /* Espaçamento entre as linhas */
+    height: 100%;
+    width: 100%;
+    text-align: start;
+}
+
+.field input {
+    margin-left: 10px; /* Espaçamento entre o texto e o input */
+    padding: 5px; /* Adiciona um pouco de padding para melhor visualização */
+}
+
+.container-fluid {
     width: 100vw;
-    min-height: 100vh;
-    /* Alterado para min-height */
+    min-height: 100vh; /* Alterado para min-height */
     background-image: url("../login-bg.webp");
     background-size: cover;
     background-position: top;
-    position: relative;
-    /* Adicionado */
-  }
+    position: relative; /* Adicionado */
+}
 
-  .conteudo {
+.conteudo {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     height: fit-content; /* Garante que o contêiner ocupe toda a altura da viewport */
-  }
-  .header {
-    position: sticky;
-    top: 0px;
-    width: 100vw;
-    height: 100px;
-    background-color: orange;
-    z-index: 1;
-  }
-
-  #header-box {
-    padding-top: 30px;
-    color: white;
-  }
-
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100px;
-    box-shadow: 0;
-    padding: 12px 16px;
-    z-index: 1;
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown.clicked .dropdown-menu {
-    display: block;
-  }
-
-  .unclickable {
-    cursor: default;
-  }
-
-#site-name {
-    margin-right: auto;
 }
 
-.img {
-    /*max-width: 55%;
-    height: auto;
-    margin-left: 100px;
-    margin-top: -26px;*/
-    object-fit: contain;
-  }
-#site-name img {
-    max-width: 55%;
-    height: auto;
-    margin-left: 100px;
-    margin-top: -26px;
-  }
 
 .form-control {
     width: 70%;
@@ -101,10 +53,10 @@ body {
 }
 
 .menu button,
-        .menu a {
-            font-size: 0.8rem;
-            padding: 0.25rem 0.5rem;
-        }
+.menu a {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+}
 
 .menu input[type="text"] {
     font-family: 'Inter', sans-serif;
@@ -146,16 +98,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Garante que a imagem de fundo fique abaixo dos outros elementos */
+    z-index: -1;
+    /* Garante que a imagem de fundo fique abaixo dos outros elementos */
     background-image: url('https://s3-alpha-sig.figma.com/img/d9fd/8ee1/a60c3d2f901fd63e7958126e88fb734f?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QAuGSO4y54EACvCuLJE0nLwI8~dc9Lmoyr83KTPinfwcPVKfQ5ZX0YvTP3RIjQDM1nVT5UDHDzPKxMJKvPZxjdTsaY08C25sUEKILVUtOZNAPxYbzD6KLRL4d-81AUf6O82bxCWQMfAM969jMAGkE05hcZWKR~20nWZ8zmxKF6wRVcRl2rglCSCfA6SdYrJLXT1GSXicMqthCcQ1aMbVCPalXZXmoIxgLAB3iHb2ITNAz0cduT0LWPb3hoO7BUfe6sp77TqM2Ew1uaYQooCN4-1MgAMxRojhOr6sno8RvBZ3Ch9VFtXZvLZQZTXWJz90MyelBnL7L2O5iOL9MYsZ5g_');
     background-size: cover;
     background-position: center;
-    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
+    opacity: 0.5;
+    /* Ajuste a opacidade conforme necessário */
 }
 
 .perfil {
     width: 80%;
-    background-color: rgba(240, 240, 240, 0.47); /* Cor de fundo com transparência */
+    background-color: rgba(240, 240, 240, 0.47);
+    /* Cor de fundo com transparência */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -164,7 +119,7 @@ body {
     border: 2px solid #73AD21;
 }
 
-.perfil_foto .fotor{
+.perfil_foto .fotor {
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -173,11 +128,12 @@ body {
     background-size: cover;
     border-radius: 50%;
 }
+
 .perfil_importante {
     display: flex;
     flex-direction: column;
-    width: 100px;
-    height: auto;
+    height: 100%;
+    width: 100%;
     margin-bottom: 10px;
     border-radius: 25px;
     border: 2px;
@@ -194,18 +150,24 @@ body {
 .d-flex .img-fluid {
     width: 158px;
     height: 158px;
-    border: 1px solid #ccc; /* Adicionando uma borda cinza */
+    border: 1px solid #ccc;
+    /* Adicionando uma borda cinza */
 }
 
 .btn-rounded {
-    border-radius: 50px; /* Define um raio maior para deixar o botão mais arredondado */
-    background-color: #96BAFF !important; /* Altera a cor de fundo do botão */
-    border-color: #96BAFF !important; /* Altera a cor da borda do botão */
+    border-radius: 50px;
+    /* Define um raio maior para deixar o botão mais arredondado */
+    background-color: #96BAFF !important;
+    /* Altera a cor de fundo do botão */
+    border-color: #96BAFF !important;
+    /* Altera a cor da borda do botão */
 }
 
 .btn-rounded:hover {
-    background-color: #7FA5FF !important; /* Altera a cor de fundo do botão ao passar o mouse */
-    border-color: #7FA5FF !important; /* Altera a cor da borda do botão ao passar o mouse */
+    background-color: #7FA5FF !important;
+    /* Altera a cor de fundo do botão ao passar o mouse */
+    border-color: #7FA5FF !important;
+    /* Altera a cor da borda do botão ao passar o mouse */
 }
 
 .conteudo {

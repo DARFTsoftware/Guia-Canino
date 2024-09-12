@@ -48,7 +48,7 @@ body {
 
 #card {
   width: 200px;
-  height: 220px;
+  min-height: 266px;
 }
 
 #card #x {
@@ -205,6 +205,11 @@ body {
 #cell-head .no-oranje {
   margin: 15px 0px 8px -16px;
   height: 31px; /* 24 [.t-bg] + 3 [.oranje] + 4 [.t-bg { padding }] */
+}
+
+#cell-head .no-oranje-one {
+  margin: 0px 0px 8px -16px;
+  height: 0px; /* 24 [.t-bg] + 3 [.oranje] + 4 [.t-bg { padding }] */
 }
 
 

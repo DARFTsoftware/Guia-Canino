@@ -1,8 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {  
-  createRowCard("tamanho", "Pequeno")
+  
+  createRowCard("tamanho", "Pequeno");
   createRowCard("tamanho", "Médio");
   createRowCard("tamanho", "Grande");
+  
 });
 
 function createRowCard(field, value) {
@@ -28,6 +30,7 @@ function createRowCard(field, value) {
 function createCard(dog, field, value) {
   const content = document.querySelector(".content");
 
+  // If my side row head is empty, create it
   if(document.querySelector(".sideRowHead-" + field + value) === null) {
     const sideHead = document.createElement("div");
     sideHead.classList.add("sideRowHead-" + field + value , "sideRow");
@@ -35,6 +38,7 @@ function createCard(dog, field, value) {
     content.appendChild(sideHead)
   }
 
+  // If my side row is empty, create it
   if(document.querySelector(".sideRow-" + field + value) === null) {
     const sideCards = document.createElement("div");
     sideCards.classList.add("sideRow-" + field + value , "sideRow");

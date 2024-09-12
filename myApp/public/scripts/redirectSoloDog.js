@@ -9,26 +9,26 @@ document.getElementById("searchForm").addEventListener("submit", function (event
 });
 
 // Barra de Pesquisa
-const inp = document.getElementById("searchInput");
-const results = document.getElementById("res");
+const inpp = document.getElementById("searchInput");
+const resultss = document.getElementById("res");
 
 // evento quando clica na barra de pesquisa (POGGERS!)
-inp.addEventListener("focusin", () => {
-    results.style.display = "inline";
-    results.style.marginTop = "3px";
-    results.style.backgroundColor = "red";
+inpp.addEventListener("focusin", () => {
+    resultss.style.display = "inline";
+    resultss.style.marginTop = "3px";
+    resultss.style.backgroundColor = "red";
 });
 
 // Script que desativa os pre set de pesquisa quando clicka fora da barra de pesquisa (POGGERS!!!)
 
-inp.addEventListener("focusout", (event) => {
+inpp.addEventListener("focusout", (event) => {
     setTimeout(() => {
         document.getElementById("res").style.display = "none";
         inp.value = "";
     }, 150);
 });
 
-inp.addEventListener("input", (e) => {
+inpp.addEventListener("input", (e) => {
 // Evento quando digita no search bar
 
 // value é oq ta sendo digitado
@@ -47,7 +47,7 @@ fetch(`/api/dogs/six/${val}`)
         return response.json();
     })
     .then((dogs) => {
-        results.innerHTML = "";
+        resultss.innerHTML = "";
         dogs.forEach((dog) => {
             if(num === 6) return;
             const li = document.createElement("li");
@@ -62,7 +62,7 @@ fetch(`/api/dogs/six/${val}`)
             });
 
             li.textContent = dog.nome;
-            results.appendChild(li);
+            resultss.appendChild(li);
             li.id = 'resLi';
             num++
         });
@@ -70,7 +70,7 @@ fetch(`/api/dogs/six/${val}`)
         if (dogs.length === 0) {
           const li = document.createElement('li');
           li.textContent = 'Nenhum resultado encontrado';
-          results.appendChild(li)
+          resultss.appendChild(li)
           li.id = 'nn';
         }
     });
