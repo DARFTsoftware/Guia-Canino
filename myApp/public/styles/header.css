@@ -1,5 +1,12 @@
 body {
- /*background-color: rgb(252, 187, 105, 0.2);*/
+  min-width:600px;
+}
+
+#stack {
+  width: 100%;
+  height: fit-content;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 2% 0px 2%;
 }
 
 .header {
@@ -40,9 +47,9 @@ body {
 
 
 #site-name img {
-  max-width: 55%;
+  max-width: 150px;
   height: auto;
-  margin-left: 100px;
+  margin-left: 10px;
   margin-top: -26px;
 }
 
@@ -56,7 +63,12 @@ body {
     background-color: orange;
 }
 
-#res {
+#searchInput, #searchInput2, .buttonSS {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+#res, #res2 {
   width: 80%;
   height: fit-content;
   margin-right: 5%;
@@ -69,25 +81,25 @@ body {
   list-style-type: none;
 }
 
-#res li {
+#res li, #res2 li {
   padding: 5px 5px;
   background-color: rgba(255, 255, 255, 0.95);
   -webkit-transition: background-color 0.25s;
 }
 
-#res #nn {
+#res #nn , #res2 #nn{
   cursor: context-menu;
 }
 
 
-#res #resLi:hover {
+#res #resLi:hover , #res2 #resLi:hover {
   cursor: pointer;
   /*background-color: rgba(255, 202, 113,0.95);*/
   /*background-color: rgba(156, 157, 254, 0.95);*/ 
   background-color: rgba(214, 107, 1, 1);
 }
 
-#res li:not(:hover) {
+#res li:not(:hover), #res2 li:not(:hover) {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -98,19 +110,31 @@ body {
 
 
 #entrarButton {
+  width: fit-content;
   background-color: rgb(100, 145, 70);
 }
 
 #perfilButton {
+  width: fit-content;
   background-color: rgb(49, 49, 41);
+  margin-left: 5px;
 }
 
 #sairButton {
+  width: fit-content;
   background-color: rgb(145, 70, 70);
-  color:white
+  color: white;
+  margin-left: 5px;
 }
 
 #headerButtons {
+  text-align: center;
+  display: flexbo;
+  align-content: flex-end;
   position:relative;
-    
+}
+
+#headerButtons a {
+  width: fit-content;
+  position:relative;
 }

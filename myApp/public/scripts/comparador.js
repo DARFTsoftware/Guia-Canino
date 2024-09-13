@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // params são os parametros da url
   const params = new URLSearchParams(window.location.search);
   // searchN é o parametro passado na url
-  const searchTerm = params.get("dog");
-  const searchDog = params.get("compara");
+  const searchDog01 = params.get("dog01");
+  const searchDog02 = params.get("dog02");
 
 
-  if (searchTerm) {
-    fetch(`/api/dogs/${searchTerm}`)
+  if (searchDog01) {
+    fetch(`/api/dogs/${searchDog01}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Cão não encontrad");
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  if (searchDog) {
-    fetch(`/api/dogs/${searchDog}`)
+  if (searchDog02) {
+    fetch(`/api/dogs/${searchDog02}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Cão não encont");
