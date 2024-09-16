@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((dog) => {
         createColl(dog);
-        setAlign()
+        setAlign();
       })
       .catch((error) => {
         displayError(error.message);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((dog2) => {
         createColl(dog2);
-        setAlign()
+        setAlign();
       })
       .catch((error) => {
         displayError(error.message);

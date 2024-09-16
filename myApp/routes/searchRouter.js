@@ -84,3 +84,12 @@ client.connect(err => {
 });
 
 module.exports = router;
+
+/*
+db.collection.find({
+  $and: [
+    { campo1: { $gt: 10 } },
+    { campo2: "valor" }
+  ]
+});
+*/

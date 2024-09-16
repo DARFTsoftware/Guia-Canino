@@ -92,6 +92,28 @@ router.get('/getU/:email', async (req, res) => {
   
 })
 
+router.get('/getUser/:email', async (req, res) => {
+
+  try {
+
+    const email = req.params.email;
+    const db = getFirestore();
+    // get a doc with a query
+    const q = query(collection(db, "user"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty){
+      return res.json("User not found");
+    }
+    querySnapshot.forEach((doc) => {
+      res.json(doc.data());  
+    });
+  } catch(error) {
+    console.log("catched error :" + error)
+  }
+
+})
+
 router.get('/getP/:email/:pass', async (req, res) => {
 
   try {

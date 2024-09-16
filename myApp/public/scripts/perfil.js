@@ -8,9 +8,33 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     })
     .then((user) => {
-      console.log(user)
+      const userr = document.querySelector(".data-user")
+      const idade = document.querySelector(".data-idade")
+      const clima = document.querySelector(".data-clima")
+      const moradia = document.querySelector(".data-espaco")
+
+      userr.innerText = user.user;
+      idade.innerText = user.idade;
+      clima.innerText = user.clima;
+      moradia.innerText = user.moradia;
+
+      console.log("a");
     })
     .catch((error) => {
       displayError(error.message);
     });
 });
+
+document.querySelector(".submtt").addEventListener("click", () => {
+  document.querySelector("#perfil-infos").submit();
+});
+
+document.querySelector(".edit-data").addEventListener("click", () => {
+  console.log("a");
+  window.location.href = `/perfil/edit`
+});
+
+document.querySelector(".searchh").addEventListner("click", () => {
+  
+});
+
