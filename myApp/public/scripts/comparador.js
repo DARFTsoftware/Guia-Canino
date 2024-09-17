@@ -57,6 +57,8 @@ inp.addEventListener("input", (e) => {
   let val = e.target.value;
   let num = 0;
 
+  
+
   // Mostrar o auto complete
   results.style.display = "inline";
 
@@ -69,7 +71,7 @@ inp.addEventListener("input", (e) => {
     }, 150);
   });
 
-  // Script pra primeira letra digitar ser maiscula, mesmo após o espaço
+  // Script pra primeira letra digitar ser maiscula, mesmo após o espaço na barra 1
   let element = e.target;
   var words = element.value.split(" ");
   element.value = words
@@ -126,7 +128,7 @@ comp.addEventListener("input", (e) => {
     }, 150);
   });
 
-  // Script pra primeira letra digitar ser maiscula, mesmo após o espaço (POGGERS!!!)
+  // Script pra primeira letra digitar ser maiscula, mesmo após o espaço na barra 2 (UNPOGGERS)
   let element = e.target;
   var words = element.value.split(" ");
   element.value = words

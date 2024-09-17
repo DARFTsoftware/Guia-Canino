@@ -19,6 +19,11 @@ document.getElementById("searchForm").addEventListener("submit", function (event
 
 });
 */
+document.addEventListener("DOMContentLoaded", function () {  
+    const sbarI = document.querySelector("#sbar-2");
+    sbarI.style.display= "none";
+    sbarI.classList.remove("col-5");
+});
 window.addEventListener("resize", (event) => {
     if (window.innerWidth <= 1000){
         // element.classList.remove("mystyle");
@@ -36,11 +41,24 @@ window.addEventListener("resize", (event) => {
         document.querySelector("#headerButtons").classList.add("col-3");
     }
 });
+
+ document.querySelector("#searchInput").addEventListener("click", () => {
+     const sbarA = document.querySelector("#sbar-1");
+      sbarA.classList.remove("col-10");
+      sbarA.classList.add("col-5");
+     
+     const sbarI = document.querySelector("#sbar-2");
+     sbarI.style.display= "inline";
+     sbarI.classList.remove("col-1");
+     sbarI.classList.add("col-5");
+ })
  
 
 document.querySelector(".buttn").addEventListener("click", () => {
     console.log("Click")
-    document.querySelector('#searchForm').submit();
+    if(document.querySelector("#searchInput").value != "" && document.querySelector("#searchInput2").value != "") {
+        document.querySelector('#searchForm').submit();
+    }
 });
 
 // Barra de Pesquisa

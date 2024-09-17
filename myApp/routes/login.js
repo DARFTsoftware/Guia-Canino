@@ -6,6 +6,7 @@ const router = express.Router()
 require('firebase/firestore');
 const { getFirestore, doc, getDoc, collection, query, where, getDocs } = require('firebase/firestore');
 const { getAuth, signInWithEmailAndPassword } = require("firebase/auth")
+const bcrypt = require('bcrypt');
 
 router.get('/', function(req, res, next) {
   res.render('login')
@@ -15,13 +16,26 @@ router.post('/', async (req, res) => {
   const { email, pass } = req.body;
   const auth = getAuth();
   try {
-    signInWithEmailAndPassword(auth, email, pass)
+    const db = getFirestore();
+    // get a doc with a query
+    const q = query(collection(db, "user"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
+    let pas = true
+    querySnapshot.forEach((doc) => {
+      pas = doc.data().password;
+    });
+    
+    const match = await bcrypt.compare(pass, pas);
+
+    if(match){
+      signInWithEmailAndPassword(auth, email, pas)
       .then((userCredential) => {
-        
+
         console.log('Login realizado com sucesso!');
-        
+
         const user = userCredential.user;
-        
+
         /* Usando localStorage */
         const userID = user.uid;
         if (typeof localStorage === "undefined" || localStorage === null) {
@@ -35,12 +49,15 @@ router.post('/', async (req, res) => {
         console.log('ID do usuário:', userID);
 
         //res.json({ userID });
-        
+
         res.redirect("/perfil")
       })
       .catch((error) => {
         console.log(error);
       })
+    } else {
+      res.json("Senha incorreta");
+    }
   } catch(error) {
     console.log("error in post(/login) → " + error)
   }
@@ -123,16 +140,24 @@ router.get('/getP/:email/:pass', async (req, res) => {
     // get a doc with a query
     const q = query(collection(db, "user"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
-    
+
+    let pas = true
     querySnapshot.forEach((doc) => {
-      if (doc.data().password == pass) {
-        return res.json("Senha correta");
-      }
-      res.json("Senha incorreta");
+      pas = doc.data().password;
     });
+    console.log(typeof pass)
+    console.log(typeof pas)
+    const match = await bcrypt.compare(pass, pas);
+
+    if(match){
+      console.log(typeof match)
+      res.json("Senha correta");
+    } else {
+      res.json("Senha incorreta");
+    }
     
   } catch(error) {
-    console.log("catched error :" + error)
+    console.log("catched error a:" + error)
   }
 
 })

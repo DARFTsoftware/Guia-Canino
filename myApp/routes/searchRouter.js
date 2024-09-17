@@ -58,7 +58,7 @@ client.connect(err => {
       res.json(dogs);
       */
       const userInput = req.params.userInput;
-      collection.find({ nome: { $regex: userInput } }).toArray((err, docs) => {
+      collection.find({ nome: { $regex: userInput, $options: "i" } }).toArray((err, docs) => {
         if (err) throw err;
         res.json(docs);
       });
@@ -67,6 +67,30 @@ client.connect(err => {
       res.status(500).send(err);
     }
   });
+
+  router.get('/dogs/query/:clima', async (req, res) => {
+    try {
+      const clim = req.params.clima;
+      const moradi  = req.params.moradia; // esses valores são passados na url "dogs/query?clima=quente&moradia=muito"
+      collection.find({
+           clima: { $regex: clim, $options: "i" } ,
+      }).toArray((err, docs) => {
+        if (err) {
+          return res.status(500).json({ error: err.message });
+        }
+        res.json(docs);
+      });
+      
+    } catch (err) {
+      const errr = {
+        "err" : err,
+        "errorMsg" : err.message,
+      }
+      res.status(500).send(errr);
+    }
+
+  });
+
 
   router.get('/dogs/:nome', async (req, res) => {
     const nome = req.params.nome;

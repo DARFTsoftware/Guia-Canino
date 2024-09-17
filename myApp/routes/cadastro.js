@@ -5,6 +5,8 @@ const router = express.Router()
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getAuth, createUserWithEmailAndPassword } = require('firebase/auth');
 const { getFirestore, doc, setDoc } = require('firebase/firestore');
+const bcrypt = require('bcrypt');
+
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -33,12 +35,13 @@ router.post('/', async (req, res) => {
     const auth = getAuth();
     const db = getFirestore();
     console.log(email, pass);
+    const hashedPassword = await bcrypt.hash(pass, 10); // esse hash vai deixar mais seguro
     
-    createUserWithEmailAndPassword(auth, email, pass).then((userCredential) => {
+    createUserWithEmailAndPassword(auth, email, hashedPassword).then((userCredential) => {
       const user = userCredential.user;
         const userData = {
           email: email,
-          password: pass
+          password: hashedPassword
         };
         //alert('Cadastro realizado com sucesso!', 'sucess');
         const docRef = doc(db, "user", user.uid);

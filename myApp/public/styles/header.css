@@ -66,6 +66,12 @@ body {
 #searchInput, #searchInput2, .buttonSS {
   padding-top: 0px;
   margin-top: 0px;
+  border-radius: 45px;
+}
+#searchInput {
+  padding-top: 0px;
+  margin-top: 0px;
+  border-radius: 45px;
 }
 
 #res, #res2 {
