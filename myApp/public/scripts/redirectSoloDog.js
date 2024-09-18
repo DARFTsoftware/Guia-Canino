@@ -98,7 +98,7 @@ inpp2.addEventListener("focusout", (event) => { // Clone
     
 inpp.addEventListener("input", (e) => {
 // Evento quando digita no search bar
-
+    
 // value é oq ta sendo digitado
 let val = e.target.value;
 let num = 0;
@@ -147,7 +147,7 @@ fetch(`/api/dogs/six/${val}`)
 
 inpp2.addEventListener("input", (e) => { //Clone
 // Evento quando digita no search bar
-
+    
 // value é oq ta sendo digitado
 let val = e.target.value;
 let num = 0;
@@ -170,11 +170,23 @@ fetch(`/api/dogs/six/${val}`)
             const li = document.createElement("li");
 
             li.onclick = () => {
-                inpp2.value = `${dog.nome}`
+                inpp2.value = `${dog.nome}`;
+                
                 //window.location.href = `compult?dog=${dog.nome}`;
+
+                const button = document.getElementById("sB");
+                if(inpp2.value != ""){
+                    button.value = "Comparar";
+                    button.textContent = "Comparar";
+                }
+                else{
+                    button.value = "Pesquisar";
+                    button.textContent = "Pesquisar";
+                }
             };
 
             li.addEventListener("mouseover", () => {
+                
                 li.style.cursor = "pointer";
             });
 

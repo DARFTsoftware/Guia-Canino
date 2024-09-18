@@ -67,12 +67,11 @@ inp.addEventListener("input", (e) => {
   }); // then((dogs)
 }); //Event-Input
 
-comp.addEventListener("input", (e) => {
-  // Evento quando digita no search bar
+comp.addEventListener("input", (e) => { // Evento quando digita no search bar
 
   // value é oq ta sendo digitado
   let val = e.target.value;
-
+  
   // Script pra primeira letra digitar ser maiscula, mesmo após o espaço (POGGERS!!!)
   let element = e.target;
   var words = element.value.split(' ');

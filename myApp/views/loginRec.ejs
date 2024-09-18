@@ -48,8 +48,10 @@ Trello Cousas
         <div class="backgroundImg">            
         </div>
         <div class="box">
-            <img src="/image/LogarTrans.webp" width="130" id="logo">
-            <form method="post" action="/login" class="fLogin">
+            <div>
+                <h2>Recuperar senha</h2>
+            </div>
+            <form method="post" action="/login/recovery" class="fRec">
                 <!-- <div id="signInMessage" class="messageDiv" style="display:nome;"></div> -->
                 <div class="box-itens">
                     <div class="row label-u">
@@ -58,49 +60,19 @@ Trello Cousas
                     </div>
                     <input type="text" class="form-i user" name="email" placeholder="Email ou Usuário" size="27">
                     <div class="row label-p">
-                        <p>Senha </p>
+                        <p>Nova senha </p>
                         <small id="senhaHelp" class="form-text pass-l"> *</small>
                     </div>
-                    <input type="password" class="form-i pass" name="pass" placeholder="Senha" size="27">
-                    <input type="button" class="button" accesskey="enter" value="Logar">
+                    <input type="password" class="form-i pass newPass" name="pass" placeholder="Nova senha" size="27">
+                    <div class="row label-p">
+                        <p>Confirmar senha </p>
+                        <small id="senhaHelp" class="form-text pass-l"> *</small>
+                    </div>
+                    <input type="password" class="form-i pass confirmPass" name="passRec" placeholder="Confirmar senha" size="27">
+                    
+                    <input type="button" class="button" accesskey="enter" value="Redefinir Senha">
                 </div>
             </form>
-            <div class="links">
-                <div class="cadastro">
-                    <p>Não possui uma conta? 
-                        <a href="/cadastro" >Cadastre-se!</a>
-                    </p>
-                </div>
-                <div class="forget">
-                    <p>Esqueceu a Senha? 
-                        <a href="/login/recovery" id="esqueceusenha">Recuperar</a>
-                    </p>
-                </div>
-            </div>
-            <div class="row divider">
-                <div class="col divisor l"></div>
-                <p class="col prh">ou</p>
-                <div class="col divisor r"></div>
-            </div>
-            <div class="box-api">
-                <div class='row api-iten gg'>
-                    <img src="https://www.svgrepo.com/show/380993/google-logo-search-new.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                    <p>Continuar com o Google</p>
-                </div>
-                <!-- fazer a img e texto ficarem na mesma linha e uma div solo pra cada -->
-                <div class='row api-iten'>
-                    <img src="https://a.travel-assets.com/egds/marks/facebook.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                    <p>Continuar com o Facebook</p>
-                </div>
-                <div class='row api-iten'>
-                    <img src="https://a.travel-assets.com/egds/marks/apple.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                    <p>Continuar com a Apple</p>
-                </div>
-                <div class='row api-iten'>
-                    <img src="https://auth.openai.com/assets/microsoft-logo-BUXxQnXH.svg" style="max-width:22px; min-width: 22px; margin: 0px 10px 0px 10px;">
-                    <p>Continuar com a Microsoft</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -113,7 +85,7 @@ Trello Cousas
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-        <script src="/scripts/login.js"></script>
+        <script src="/scripts/recPass.js"></script>
         <!---<script src="/scripts/firebaseConfig.js"></script>--->
 </body>
 

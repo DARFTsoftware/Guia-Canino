@@ -4,8 +4,8 @@ const router = express.Router()
 //const firebase = require('firebase/app');
 //const { initializeApp, applicationDefault, cert } = require('firebase/app');
 require('firebase/firestore');
-const { getFirestore, doc, getDoc, updateDoc, collection, query, where, getDocs } = require('firebase/firestore');
-const { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } = require("firebase/auth") 
+const { getFirestore, doc, getDoc, collection, query, where, getDocs } = require('firebase/firestore');
+const { getAuth, signInWithEmailAndPassword } = require("firebase/auth") 
 const { signInWithPopup, GoogleAuthProvider } = require("firebase/auth")
 const bcrypt = require('bcrypt');
 
@@ -19,7 +19,7 @@ router.get("/token", async function(req, res) {
     console.log("B");
     const provider = new GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    
+
     const auth = getAuth();
     auth.useDeviceLanguage();
 
@@ -76,14 +76,13 @@ router.post('/', async (req, res) => {
     const q = query(collection(db, "user"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
 
-    let pas = ""
+    let pas = true
     querySnapshot.forEach((doc) => {
       pas = doc.data().password;
     });
-    console.log(pas)
     
     const match = await bcrypt.compare(pass, pas);
-    console.log(match)
+
     if(match){
       signInWithEmailAndPassword(auth, email, pas)
       .then((userCredential) => {
@@ -117,34 +116,6 @@ router.post('/', async (req, res) => {
   } catch(error) {
     console.log("error in post(/login) → " + error)
   }
-/*
-  // Esqueceu a senha inicio
-  
-  // Pega emailHelp em login.ejs
-  let EmailHelp = document.getElementById('emailHelp')
-  // Pega o esqueceusenha em login.ejs
-  let Esqueceu = document.getElementById('esqueceusenha');
-
-  // Pega oque está armazenado em EmailHelp e executa o sendPasswordResetEmail
-
-  const Forgot = () => {
-    sendPasswordResetEmail(auth, EmailHelp.value).then( () => {
-      console.log("Um link para resetar senha foi enviado para o email informado.")
-    })
-    .catch((error)=>{
-      console.log(error.code);
-      console.log(error.message);
-    })
-  }
-
-  //Quando Esqueceu é clicado, executa a função Forgot
-
-  Esqueceu.addEventListner("click", () => {
-    Forgot();
-  })
-
-  // Fim do EsqueceuSenha
-*/
 });
 
 router.get('/getU/:email', async (req, res) => {
@@ -160,7 +131,6 @@ router.get('/getU/:email', async (req, res) => {
     if (querySnapshot.empty){
       return res.json("User not found");
     }
-    
     querySnapshot.forEach((doc) => {
       res.json(doc.data().email);  
     });
@@ -247,48 +217,11 @@ router.get('/getP/:email/:pass', async (req, res) => {
 
 })
 
-router.get('/recovery', function(req, res, next) {
-  res.render('loginRec')
-})
-
-router.post("/recovery", async function(req, res) {
-  const email = req.body.email;
-  const newPass = req.body.pass;
-  const db = getFirestore();
-  
-  try {
-    const q = query(collection(db, "user"), where("email", "==", email));
-    const querySnapshot = await getDocs(q);
-
-    if (querySnapshot.empty){
-      return res.json("User not found");
-    }
-    let userId = ""
-    querySnapshot.forEach((doc) => {
-      userId = doc.id;  
-    });
-
-    const hashedNewPass = await bcrypt.hash(newPass, 10);
-    
-    const userDocs = doc(db, "user", userId);
-    await updateDoc(userDocs, {
-      password: hashedNewPass
-    });
-
-    res.redirect("/login")
-  } catch (error) {
-    console.log("error in post(/recovery) → " + error)
-  }
-  
-  
-})
-
 module.exports = router;
 
 /*
 
 // OAuth?
-// https://www.youtube.com/watch?v=Q0a0594tOrc
 
 const express = require('express');
 const axios = require('axios');

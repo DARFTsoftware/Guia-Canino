@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-require('firebase/firestore');
-const { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs } = require('firebase/firestore');
+const { getFirestore, doc, setDoc, getDoc, updateDoc, collection, query, where, getDocs } = require('firebase/firestore');
 
 router.get("/getUser", async function (req, res) {
     if (typeof localStorage === "undefined" || localStorage === null) {

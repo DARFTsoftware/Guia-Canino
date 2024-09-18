@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router()
 const { MongoClient } = require('mongodb');
 
+// mongodb://<username>:<password>@main-shard-00-00-03xkr.mongodb.net:27017,main-shard-00-01-03xkr.mongodb.net:27017,main-shard-00-02-03xkr.mongodb.net:27017/main?ssl=true&replicaSet=Main-shard-0&authSource=admin&retryWrites=true
 const uri = process.env['MongoUuu'];
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -11,6 +12,8 @@ console.log("Essa é a uri: "+ uri )
 
 client.connect(err => {
   if (err) {
+    //https://stackoverflow.com/questions/68875026/error-querysrv-eservfail-mongodb-tcp-cluster0-abcd0-mongodb-net
+    //https://stackoverflow.com/questions/55499175/how-to-fix-error-querysrv-erefused-when-connecting-to-mongodb-atlas
     console.error('Erro ao conectar ao MongoDB', err);
     process.exit(1);
   }

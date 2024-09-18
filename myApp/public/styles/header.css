@@ -114,6 +114,11 @@ body {
   background-color: rgba(255,255,255, 0.95);
 }
 
+#sB {
+  border-radius: 12px;
+  background-color: white;
+  color: black;
+}
 
 #entrarButton {
   width: fit-content;
@@ -134,10 +139,9 @@ body {
 }
 
 #headerButtons {
+  max-height: fit-content;
+  margin-top: 0px !important;
   text-align: center;
-  display: flexbo;
-  align-content: flex-end;
-  position:relative;
 }
 
 #headerButtons a {

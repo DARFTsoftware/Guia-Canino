@@ -5,6 +5,12 @@ document.querySelector(".button").addEventListener("click", () => {
 
 function checkUserExists() {
   const checkU = document.querySelector(".user").value
+
+  const userErr = document.querySelector(".user-l")
+  userErr.innerText = "- *"
+  const passErr = document.querySelector(".pass-l")
+  passErr.innerText = " - *"
+  document.querySelector(".text-muted").style = "color: black !important;"
   
   fetch(`/login/getU/${checkU}`)
     .then((response) => {
@@ -64,5 +70,9 @@ function checkPass(user) {
       return false
     });
 }
+
+document.querySelector(".gg").addEventListener("click", () => {
+  window.location.href = "/login/token"
+})
 
                                          

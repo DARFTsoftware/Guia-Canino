@@ -33,7 +33,7 @@ function createCard(dog, field, value) {
   // If my side row head is empty, create it
   if(document.querySelector(".sideRowHead-" + field + value) === null) {
     const sideHead = document.createElement("div");
-    sideHead.classList.add("sideRowHead-" + field + value , "sideRow");
+    sideHead.classList.add("sideRowHead-" + field + value , "sideRowHead");
     sideHead.innerText = "Cahorros que possuem " + field + " " + value.toLowerCase();
     content.appendChild(sideHead)
   }
@@ -49,6 +49,12 @@ function createCard(dog, field, value) {
   const card = document.createElement("div");
   card.classList.add("card");
   sideRow.appendChild(card);
+  card.onclick = () => {
+    window.location.href = `/compult?dog01=${dog.nome}`;
+  }
+  card.onmouseover = () => {
+    card.style.cursor = "pointer"
+  }
 
   const cardImg = document.createElement("img");
   cardImg.classList.add("card-img")

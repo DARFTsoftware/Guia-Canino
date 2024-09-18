@@ -17,24 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
       idade.innerText = user.idade;
       clima.innerText = user.clima;
       moradia.innerText = user.moradia;
-
-      console.log("a");
     })
     .catch((error) => {
       displayError(error.message);
     });
 });
 
-document.querySelector(".submtt").addEventListener("click", () => {
-  document.querySelector("#perfil-infos").submit();
-});
+//document.querySelector(".submtt").addEventListener("click", () => {
+//  document.querySelector("#perfil-infos").submit();
+//});
 
 document.querySelector(".edit-data").addEventListener("click", () => {
   console.log("a");
-  window.location.href = `/perfil/edit`
+  window.location.href = "/perfil/edit"
 });
 
-document.querySelector(".searchh").addEventListner("click", () => {
+document.querySelector(".searchh").addEventListener("click", () => {
   
 });
 

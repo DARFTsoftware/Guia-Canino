@@ -8,10 +8,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // searchN é o parametro passado na url
   const searchDog01 = params.get("dog01");
   const searchDog02 = params.get("dog02");
+  const searchDog03 = params.get("dog02");
+  const searchDog04 = params.get("dog02");
+  const searchDog05 = params.get("dog02");
 
 
-  if (searchDog01) {
-    fetch(`/api/dogs/${searchDog01}`)
+  searchTheDog(searchDog01);
+  searchTheDog(searchDog02);
+  searchTheDog(searchDog03);
+  searchTheDog(searchDog04);
+  searchTheDog(searchDog05);
+
+
+});
+
+function searchTheDog(seachedDog){
+  if (seachedDog) {
+    fetch(`/api/dogs/${seachedDog}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Cão não encontrad");
@@ -26,24 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         displayError(error.message);
       });
   }
-
-  if (searchDog02) {
-    fetch(`/api/dogs/${searchDog02}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Cão não encont");
-        }
-        return response.json();
-      })
-      .then((dog2) => {
-        createColl(dog2);
-        setAlign();
-      })
-      .catch((error) => {
-        displayError(error.message);
-      });
-  }
-});
+}
 
 // Barra de Pesquisa e auto complete variaveis
 const inp = document.getElementById("searchInput");
@@ -90,7 +86,7 @@ inp.addEventListener("input", (e) => {
         const li = document.createElement("li");
 
         li.onclick = () => {
-          window.location.href = `/compara?dog=${dog.name}`;
+          window.location.href = `/compult?dog=${dog.name}`;
         };
 
         li.textContent = dog.nome;
