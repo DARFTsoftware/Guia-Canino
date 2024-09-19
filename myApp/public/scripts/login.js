@@ -10,7 +10,7 @@ function checkUserExists() {
   userErr.innerText = "- *"
   const passErr = document.querySelector(".pass-l")
   passErr.innerText = " - *"
-  document.querySelector(".text-muted").style = "color: black !important;"
+  //document.querySelector(".text-muted").style.color = "black !important;"
   
   fetch(`/login/getU/${checkU}`)
     .then((response) => {
