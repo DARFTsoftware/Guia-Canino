@@ -8,7 +8,6 @@ const { MongoClient } = require('mongodb');
 const uri = process.env.MongoUuu
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-console.log("Essa é a uri: "+ uri )
 
 client.connect(err => {
   if (err) {
