@@ -58,6 +58,8 @@ document.querySelector(".buttn").addEventListener("click", () => {
     console.log("Click")
     if(document.querySelector("#searchInput").value != "" && document.querySelector("#searchInput2").value != "") {
         document.querySelector('#searchForm').submit();
+    } else if (document.querySelector("#searchInput").value != "" && document.querySelector("#searchInput2").value == ""){
+        document.querySelector('#searchForm').submit();
     }
 });
 

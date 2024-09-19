@@ -5,7 +5,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 500px;
+  min-width: 600px;
+  min-height: fit-content;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.2) /*def:73,73,73 */ !important;
   overflow-x: auto;
@@ -81,7 +82,7 @@ body {
 
 #card .pokemon-card {
   width: 190px;
-  height: fit-content;
+  height: 245px;
   text-align: center;
   border-radius: 12px;
   margin-bottom: 15px;
@@ -90,6 +91,10 @@ body {
   margin-left: 50%;
   transform: translate(-50%, 0%);
   z-index: 0;
+}
+
+#card .pokemon-card h4{
+  padding-top: 5px;
 }
 
 /* First Card */

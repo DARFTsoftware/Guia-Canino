@@ -8,17 +8,48 @@ document.addEventListener("DOMContentLoaded", function () {
   // searchN é o parametro passado na url
   const searchDog01 = params.get("dog01");
   const searchDog02 = params.get("dog02");
-  const searchDog03 = params.get("dog02");
-  const searchDog04 = params.get("dog02");
-  const searchDog05 = params.get("dog02");
-
 
   searchTheDog(searchDog01);
+  searchTheDog(searchDog02);
+  /*
+  
+  const searchDog03 = params.get("dog03");
+  const searchDog04 = params.get("dog04");
+  const searchDog05 = params.get("dog05");
+*/
+/*
+  if (searchDog01){
+    return
+  } else {
+    searchTheDog(searchDog01);
+  }
+  if (searchDog02){
+    return
+  } else {
+    searchTheDog(searchDog02);
+  }
+  if (searchDog03){
+    return
+  } else {
+    searchTheDog(searchDog03);
+  }
+  if (searchDog04){
+    return
+  } else {
+    searchTheDog(searchDog04);
+  }
+  if (searchDog05){
+    return
+  } else {
+    searchTheDog(searchDog05);
+  }
+*/
+  /*
   searchTheDog(searchDog02);
   searchTheDog(searchDog03);
   searchTheDog(searchDog04);
   searchTheDog(searchDog05);
-
+*/
 
 });
 
@@ -136,6 +167,7 @@ comp.addEventListener("input", (e) => {
       return response.json();
     })
     .then((dogs) => {
+      
       resultsComp.innerHTML = "";
       //const searchDog = new URLSearchParams(window.location.search).get("nome");
       //const searchCompara = comp.value;

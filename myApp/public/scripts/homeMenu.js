@@ -28,14 +28,34 @@ function createRowCard(field, value) {
 }
 
 function createCard(dog, field, value) {
+  if (dog.nome === "Dogue de Bordeaux"){
+    return
+  }
+  if (dog.nome === "Pinscher Alemão"){
+    return
+  }
+  if (dog.nome === "Norsk Lundehund"){
+    return
+  }
+  if (dog.nome === "Papillon"){
+    return
+  }
   const content = document.querySelector(".content");
 
   // If my side row head is empty, create it
   if(document.querySelector(".sideRowHead-" + field + value) === null) {
     const sideHead = document.createElement("div");
     sideHead.classList.add("sideRowHead-" + field + value , "sideRowHead");
-    sideHead.innerText = "Cahorros que possuem " + field + " " + value.toLowerCase();
-    content.appendChild(sideHead)
+    
+    const headP = document.createElement("h4");
+    headP.innerText = value + " porte";
+    sideHead.appendChild(headP);
+
+    const divider = document.createElement("div");
+    divider.classList.add("divider");
+    sideHead.appendChild(divider);
+    
+    content.appendChild(sideHead);
   }
 
   // If my side row is empty, create it
@@ -49,17 +69,17 @@ function createCard(dog, field, value) {
   const card = document.createElement("div");
   card.classList.add("card");
   sideRow.appendChild(card);
-  card.onclick = () => {
-    window.location.href = `/compult?dog01=${dog.nome}`;
-  }
-  card.onmouseover = () => {
-    card.style.cursor = "pointer"
-  }
 
   const cardImg = document.createElement("img");
   cardImg.classList.add("card-img")
-  cardImg.src = dog.image;
+  cardImg.src = dog.cardImg;
   card.appendChild(cardImg);
+  cardImg.onclick = () => {
+    window.location.href = `/compult?dog01=${dog.nome}`;
+  }
+  cardImg.onmouseover = () => {
+    cardImg.style.cursor = "pointer"
+  }
 
   const cardName = document.createElement("div");
   cardName.innerText = dog.nome;
