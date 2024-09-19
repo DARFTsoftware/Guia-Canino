@@ -1,11 +1,11 @@
-require('dotenv').config({ path: './keys/.env' });
+require('dotenv').config({ path: './keys/.env' }); // process.env.API_KEY
 
 const express = require('express');
 const router = express.Router()
 const { MongoClient } = require('mongodb');
 
 // mongodb://<username>:<password>@main-shard-00-00-03xkr.mongodb.net:27017,main-shard-00-01-03xkr.mongodb.net:27017,main-shard-00-02-03xkr.mongodb.net:27017/main?ssl=true&replicaSet=Main-shard-0&authSource=admin&retryWrites=true
-const uri = process.env['MongoUuu'];
+const uri = process.env.MongoUuu
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 console.log("Essa é a uri: "+ uri )
