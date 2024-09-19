@@ -33,7 +33,7 @@ function createCard(dog, field, value) {
   // If my side row head is empty, create it
   if(document.querySelector(".sideRowHead-" + field + value) === null) {
     const sideHead = document.createElement("div");
-    sideHead.classList.add("sideRowHead-" + field + value , "sideRow");
+    sideHead.classList.add("sideRowHead-" + field + value , "sideRowHead");
     sideHead.innerText = "Cahorros que possuem " + field + " " + value.toLowerCase();
     content.appendChild(sideHead)
   }
