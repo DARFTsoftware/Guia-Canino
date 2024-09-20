@@ -9,6 +9,24 @@
       <p>
         Funções: Comparar animais e suas raças para ver o seu custo de habitação: O quão caro em geral é a ração do animal? O quanto custa pra mantê-lo saudável? Se ficar doente, custa muito para levar ao veterinário? Além disso, ao nos fornecer algumas informações por meio de um cadastro de usuário(opcional), você pode personalizar sua experiência, incluindo: cães compatíveis com seu clima, moradia, renda e muito mais.
       </p>
+      <h2>Como baixar e utilizar a aplicação?</h2>
+      <p>
+        Primeiramente pelo terminal (CMD, terminal do VSC, gitBash) de sua preferência use o comando:
+      </p>
+      <strong>
+        git clone https://github.com/DARFTsoftware/Guia-Canino.git
+      </strong>
+      <div><br></div>
+      <p>
+        Após clonar o projeto acesse a pasta myApp e instale as dependências necessárias para rodar a aplicação:
+      </p>
+      <strong>cd myApp</strong><br>
+      <strong>npm i</strong>
+      <div><br></div>
+      <p>Na pasta myApp execute o comando:</p>
+      <strong>npm start</strong>
+      <div><br></div>
+      <p> E pronto o projeto já estará rodando no seu dispositivo
     </div>
       <div>
         <h1>Links</h1>
