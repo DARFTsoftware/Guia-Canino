@@ -2,32 +2,22 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
-//const db = require('./firebase.js');
+require("dotenv").config({ path: './keys/.env' });
+const cors = require("cors");
+const passport = require("passport");
+const authRoute = require("./routes/auth.js");
+const cookieSession = require("cookie-session");
+const passportStrategy = require("./passport");
 
-// app.js
-
-// Restante do seu código aqui
-
-// Adicionar informações dos cachorros
-
-// Adicionar os dados do Chihuahua à coleção "dogs"
-
-// Define a pasta onde estão os arquivos de visualização (views)
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs"); // Define o mecanismo de visualização como EJS
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// main = __dirname + "/views/mainMenu.html"
-// cadastro = __dirname + "/views/cadastro.html"
-// compara = __dirname + "/views/compara.html"
-// email = __dirname + "/views/e-mail.html"
-// favoritos = __dirname + "/views/favoritos.html"
-// login = __dirname + "/views/login.html"
-// perfil = __dirname +  "/views/perfil.html"
-// soloDog = __dirname + "/views/solodog.html"
-// senha = __dirname + "/views/senha.html"
+app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var cadastroRouter = require("./routes/cadastro");
 var comparaRouter = require("./routes/compara");
@@ -49,6 +39,8 @@ var firebaseRouter = require("./routes/firebaseRoute");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
+
 app.use("/", mainMenuRouter);
 app.use("/cadastro", cadastroRouter);
 app.use("/compara", comparaRouter);
@@ -66,6 +58,7 @@ app.use("/carro", carroRouter);
 app.use("/about", aboutRouter);
 app.use("/api", searchRouter);
 app.use("/fireb", firebaseRouter);
+app.use("/auth", authRoute);
 
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");

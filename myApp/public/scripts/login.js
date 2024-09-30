@@ -72,7 +72,6 @@ function checkPass(user) {
 }
 
 document.querySelector(".gg").addEventListener("click", () => {
-  window.location.href = "/login/token"
-})
-
+  window.location.href = "/auth/google";
+});
                                          
